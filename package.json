@@ -1,0 +1,18 @@
+{
+  "name": "todo-notes",
+  "version": "1.0.0",
+  "description": "un proyecto enfoncado en el uso de React Js",
+  "main": "webpack.config.js",
+  "devDependencies": {},
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "node": "^20.4.0",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "vickFaby",
+  "license": "MIT"
+}
