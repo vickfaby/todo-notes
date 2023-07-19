@@ -1,0 +1,21 @@
+@import 'vars';
+
+.bloc{
+    background: var(--colorYellow);
+    box-shadow: 2px 3px 20px 2px rgba(0, 0, 0, 0.4901960784);
+    display: block;
+    height: 20rem;
+    width: calc(100% - 4rem);
+    margin: 1rem auto 1rem auto;
+    border: 0px solid #000000;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    position: relative;
+    z-index: 1;
+}
+.bloc > textarea {
+    width: 100%;
+    height: 16rem;
+    background: none;
+    border: 1px solid var(--colorGray);
+}

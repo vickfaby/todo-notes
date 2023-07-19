@@ -1,0 +1,34 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-general);
+  }
+  
+  html {
+    font-size: 62.5%;
+    height: auto;
+    background: var(--color-background);
+    font-family: var(--fuente);
+  }
+  #app{
+    min-width: 375px;
+
+  }
+:root {
+
+  --colorBlueDark: #212A3E;
+  --colorBlueLight: #394867;
+  --colorGreen: #00B906;
+  --colorYellow: #FFF4BA;
+  --colorGray: #939393;
+  --colorWhiteDark: #eeeeee;
+  --colorWhite: #f5f5f5;
+  --fondoGeneral2: linear-gradient(207.8deg, #d1f8ff 16.69%, #ffffff 100%);
+  --fondoGeneral: linear-gradient(207.8deg, #00204a 16.69%, #070708 100%);
+
+  --fuente: "Poppins", sans-serif;
+}
+
+// Victor Mono, Inconsolata, 

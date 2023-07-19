@@ -1,0 +1,17 @@
+@import 'vars';
+
+.buttonOption-div{
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background: var(--color1);
+    margin: 0 0.5rem;
+    height: 2rem;
+}
+
+.buttonOption-div:hover {
+    background: var(--color3);
+    cursor: pointer;
+}
