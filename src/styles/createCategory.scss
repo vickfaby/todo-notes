@@ -1,0 +1,39 @@
+@import 'vars';
+
+.createCategory {
+  position: absolute;
+  background: var(--colorWhite);
+  border: 1px solid var(--colorGray);
+  width: 20rem;
+  height: 12rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  left: calc(50% - 10rem);
+  top: calc(50% - 5rem);
+  display: none;
+  z-index: 2;
+}
+
+.createCategory-buttonContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.createCategory-buttonContainer-accept {
+  width: 10rem;
+  text-align: center;
+  background: var(--colorGreen);
+  color: var(--colorWhite);
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+.createCategory-buttonContainer-cancel {
+  width: 10rem;
+  text-align: center;
+  background: var(--colorBlueDark);
+  color: var(--colorWhite);
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}

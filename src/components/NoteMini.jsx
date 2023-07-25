@@ -1,17 +1,43 @@
-import React, { useEffect } from 'react';
+/* eslint-disable no-unused-vars */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import React, { useContext, useEffect } from 'react';
 import '../styles/NoteMini.scss';
+import { MyContext } from './Provider';
 
 function NoteMini({ note }) {
+  const {
+    noteSelected,
+    setNoteSelected,
+    showContainerEditNote,
+    containerSelected,
+    showSuperNotesOnly,
+  } = useContext(MyContext);
 
+  const handleClick = (idNote) => {
+    console.log(idNote);
+    setNoteSelected(idNote);
+    showContainerEditNote();
+    // showSuperNotesOnly()
+  };
   useEffect(() => {
-    console.log('llega la nota:');
-    console.log(note?.id);
+    const noteMini = document.getElementById(`note-${note?.id}`);
 
-    // document.getElementById(`note-${note?.id}`).style.background = note?.color
-  }, []);
+    if (note?.id === noteSelected) {
+        noteMini.style.border = '2px solid var(--colorGreen)';
+        // noteMini.style.background = 'var(--colorBlueLight)';
+    } else {
+        noteMini.style.border = 'none';
+        // noteMini.style.background = 'var(--colorWhite)';
+    }
+  }, [noteSelected]);
 
   return (
-    <div id={`note-${note?.id}`} className="noteMini-div">
+    <div
+      id={`note-${note?.id}`}
+      className="noteMini-div"
+      onClick={() => handleClick(note?.id)}
+    >
       <div>
         <p>{note?.title}</p>
       </div>

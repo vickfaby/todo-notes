@@ -1,7 +1,7 @@
 @import 'vars';
 
 .containerEditNote {
-  display: none; //flex
+  display: none; //block
   background: var(--colorWhiteDark);
   box-shadow: 2px 3px 10px 2px rgba(0, 0, 0, 0.4901960784);
   height: calc(36rem);
@@ -14,53 +14,29 @@
   z-index: 1;
 }
 
+.containerEditNote > h1 {
+  color: var(--colorGray);
+  position: absolute;
+  top: 16rem;
+  left: 5rem;
+}
+
+.containerEditNote > p {
+  color: var(--colorGray);
+}
+.containerEditNote-container{
+  display: flex;
+}
 .containerEditNote-notes {
   width: 40%;
+  height: 28rem;
   background: var(--colorWhiteDark);
+  overflow-y: scroll;
 }
 .containerEditNote-notes > div {
   margin-top: 0.5rem;
   margin-right: 0.5rem;
   background: var(--colorWhite);
-}
-.containerEditNote-editNotes {
-  padding: 2rem;
-  width: 60%;
-  background: var(--colorWhite);
-  box-shadow: 1px 1px 4px 1px rgb(0 0 0 / 22%);
-  border-radius: 0.5rem;
-}
-
-.containerEditNote-editNotes-noteInfo {
-  border-bottom: 1px solid var(--colorGray);
-  margin-bottom: 2rem;
-}
-
-.containerEditNote-editNotes-noteInfo > p:nth-child(2) {
-  font-style: italic;
-}
-.containerEditNote-editNotes-noteInfo > p:nth-child(1) {
-  font-weight: bold;
-}
-
-.containerEditNote-editNotes-editNote > {
-  margin-bottom: 1rem;
-}
-
-.containerEditNote-editNotes-editNote > input {
-  width: 100%;
-  border: none;
-  background: var(--colorWhite);
-}
-.containerEditNote-editNotes-editNote > textarea {
-  width: 100%;
-  height: 20rem;
-  background: var(--colorWhite);
-  border: none;
-  font-size: 2rem;
-}
-
-.containerEditNote-editNotes-editNote :nth-child(1) {
-  font-weight: 900;
-  margin-bottom: 1rem;
+  max-width: 12rem;
+  height: 12rem;
 }

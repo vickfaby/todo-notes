@@ -11,7 +11,16 @@
   border-radius: 0.5rem;
   padding: 1rem;
   position: relative;
+  overflow-y: scroll;
   z-index: 1;
+}
+
+.ContainerNotesMini > h2 {
+  color: var(--colorGray);
+  position: absolute;
+  display: block;
+  top: calc(50% - 1rem);
+  left: calc(50% - 6rem);
 }
 
 .containerNotesMini-category-div {
@@ -22,12 +31,12 @@
   display: block;
   //border-bottom: 1px solid var(--color2);
 }
-.containerNotesMini-category-notesTitle{
+.containerNotesMini-category-notesTitle {
   display: flex;
 }
 .containerNotesMini-category-notesTitle > p {
   text-align: left;
-  font-weight:400;
+  font-weight: 400;
 }
 
 .containerNotesMini-category-notesTitle p:nth-child(2) {
@@ -36,12 +45,13 @@
   color: var(--colorGreen);
 }
 
-.containerNotesMini-category-div-categories{
+.containerNotesMini-category-div-categories {
   display: flex;
 }
 .containerNotesMini-NoteContainer-div {
   // border: 1px solid #000000;
   width: -webkit-fill-available;
+  height: calc(100% - 5rem);
 }
 .noteContainer-options-div {
   background: #ffffff;
@@ -51,13 +61,12 @@
 }
 .noteMiniContainer-div {
   height: calc(100% - 2.5rem);
-  padding: 1rem;
   overflow-y: scroll;
   justify-content: space-evenly;
   display: grid;
-  grid-template-rows: 10rem;
-  grid-template-columns: repeat(auto-fill, minmax(5rem, 8rem));
-  grid-auto-rows: 10rem;
+  grid-template-rows: 15rem;
+  grid-template-columns: repeat(auto-fill, minmax(6rem, 10rem));
+  grid-auto-rows: 15rem;
   grid-auto-columns: 7rem;
   gap: 1rem;
 }

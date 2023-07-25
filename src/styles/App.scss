@@ -3,7 +3,7 @@
 main {
   // background: var(--color4);
   display: flex;
-  height: calc(100vh - 4rem);
+  height: 100%;
 }
 .main-leteralBar-div {
   width: 10rem;
@@ -13,15 +13,16 @@ main {
   flex-direction: column;
   align-items: center;
 }
-.main-leteralBar-logo > p{
-color: var(--colorWhite);
+.main-leteralBar-logo > p {
+  color: var(--colorWhite);
 }
 .main-leteralBar-addButon {
   background: var(--colorGreen);
   color: var(--colorWhite);
   margin-bottom: 4rem;
 }
-.main-leteralBar-div > input , .main-leteralBar-addButon{
+.main-leteralBar-div > input,
+.main-leteralBar-addButon {
   border-radius: 1rem;
   width: 6rem;
   height: 2rem;
@@ -32,13 +33,13 @@ color: var(--colorWhite);
   flex-wrap: nowrap;
   margin-top: 1rem;
 }
-.main-home-div{
+.main-home-div {
   width: 100%;
 }
 .main-home-welcome {
   position: relative;
 }
-.main-home-welcome > img{
+.main-home-welcome > img {
   object-fit: cover;
   width: 100%;
   /* height: 10rem; */
@@ -47,7 +48,7 @@ color: var(--colorWhite);
 }
 .main-home-welcome > p {
   position: absolute;
-  color: #FFFFFF;
+  color: #ffffff;
   top: 2rem;
   right: 1rem;
   font-size: 2rem;
@@ -55,10 +56,28 @@ color: var(--colorWhite);
   z-index: 1;
 }
 
-
-.main-home-welcome :nth-child(2){
-top: 4.5rem;
+.main-home-welcome :nth-child(2) {
+  top: 4.5rem;
 }
-.main-home-welcome :nth-child(3){
-top: 7rem;
+.main-home-welcome :nth-child(3) {
+  top: 7rem;
+}
+
+.superNoteExtern {
+  background: var(--colorWhiteDark);
+  box-shadow: 2px 3px 20px 2px rgba(0, 0, 0, 0.4901960784);
+  display: none;
+  height: calc(36rem);
+  width: calc(100% - 4rem);
+  margin: -5rem auto 1rem auto;
+  border: 0px solid #000000;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  position: relative;
+  overflow-y: scroll;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 1;
 }
