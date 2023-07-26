@@ -2,6 +2,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { MyContext } from './Provider';
 import ButtonLateralBar from './ButtonLateralBar';
+import '../styles/LateralCategoryContainer.scss'
 
 function LateralCategoryContainer() {
     const { todo } = useContext(MyContext);
@@ -28,7 +29,7 @@ function LateralCategoryContainer() {
  },[todo])
 
   return (
-    <div>{categories}</div>
+    <div className='LateralCategoryContainer'>{categories}</div>
   )
 }
 

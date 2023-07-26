@@ -3,10 +3,11 @@
 .containerEditNote-editNotes-editNote {
   padding: 1rem;
   width: 60%;
+  max-width: 16.5rem;
   height: 28rem;
-  background: var(--colorYellow);
+  background: var(--colorWhite);
   border: 2px solid var(--colorGreen);
-  box-shadow: 1px 1px 4px 1px rgb(0 0 0 / 22%);
+  box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.22);
   border-radius: 0.5rem;
 }
 .containerEditNote-editNotes-noteInfo {
@@ -28,7 +29,7 @@
 .containerEditNote-editNotes-editNote > input {
   width: 100%;
   border: none;
-  background: var(--colorYellow);
+  background: var(--colorWhite);
   font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -43,7 +44,7 @@
 .containerEditNote-editNotes-editNote > textarea {
   width: 100%;
   height: 18rem;
-  background: var(--colorYellow);
+  background: var(--colorWhite);
   border: none;
   font-size: 1rem;
 }

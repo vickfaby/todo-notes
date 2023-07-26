@@ -192,6 +192,7 @@ function MyProvider({ children }) {
 
     newTodo[indexOfCategory].notes.push(emptyNote);
     console.log(newTodo);
+    setNoteSelected(emptyNote.id);
     setTodo(newTodo);
     showContainerEditNote();
   };

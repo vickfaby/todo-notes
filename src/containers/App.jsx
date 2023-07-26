@@ -14,6 +14,7 @@ import CreateCategory from '../components/CreateCategory';
 import ReadAndEditNote from '../components/ReadAndEditNote';
 import SuperNoteToEdit from '../components/SuperNoteToEdit';
 import LateralCategoryContainer from '../components/LateralCategoryContainer';
+import ButtonSizeBar from '../components/ButtonSizeBar';
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
     <MyProvider>
       <CreateCategory />
       <main>
-        <div className="main-leteralBar-div">
+        <div id='main-leteralBar-div' className="main-leteralBar-div">
           <div className="main-leteralBar-logo">
             <p>Todo</p>
             <p>Notes</p>
@@ -32,6 +33,7 @@ function App() {
           <ButtonLateralBar value="Notas" />
           <LateralCategoryContainer/>
           <ButtonLateralBar value="Agenda" />
+          <ButtonSizeBar/>
           {/* <ButtonLateralBar value="Nota" /> */}
           {/* <ButtonLateralBar value="Papelera" /> */}
 

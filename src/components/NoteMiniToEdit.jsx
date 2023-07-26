@@ -21,10 +21,10 @@ function NoteMiniToEdit({ note }) {
 
     if (note?.id ===noteSelected ) {
       noteMiniToEdit.style.border = '2px solid var(--colorGreen)';
-      noteMiniToEdit.style.background = 'var(--colorYellow)';
+     // noteMiniToEdit.style.background = 'var(--colorYellow)';
     } else {
       noteMiniToEdit.style.border = 'none';
-      noteMiniToEdit.style.background = 'var(--colorWhite)';
+    //  noteMiniToEdit.style.background = 'var(--colorWhite)';
     }
   }, [noteSelected]);
 

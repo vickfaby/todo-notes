@@ -6,7 +6,7 @@ import '../styles/ButtonLateralBar.scss';
 import { MyContext } from './Provider';
 
 function ButtonLateralBar({ value, id  }) {
-  const { showContainerNotesMini, showContainerEditNote, createNewNote, showCreateCategoryDiv,setCategorySelected } = useContext(MyContext);
+  const { showContainerNotesMini, showContainerEditNote, createNewNote, showCreateCategoryDiv,setCategorySelected,noteSelected, setNoteSelected } = useContext(MyContext);
 
   const options = {
     Inicio: () => showContainerNotesMini(),
@@ -20,7 +20,9 @@ function ButtonLateralBar({ value, id  }) {
   const handle = () => {
     // eslint-disable-next-line no-unused-vars
     if(id !== undefined){
+      console.log(`Se actualiza el noteSelected a 0`)
       setCategorySelected(id)
+      setNoteSelected(0)  // ayuda a renderizar el SuperNote
     }
     const execute = options[value]
       ? options[value]()

@@ -4,7 +4,7 @@ import { MyContext } from './Provider';
 import '../styles/SuperNoteToEdit.scss';
 
 function SuperNoteToEdit({ nota }) {
-  const { titleHandler, contentHandler, noteSelected, setNoteSelected, categorySelected, todo } =
+  const { titleHandler, contentHandler, noteSelected, setNoteSelected, categorySelected, todo , notesToRender} =
     useContext(MyContext);
 
   const [ noteToEdit, setNoteToEdit]  = useState({});
@@ -23,9 +23,7 @@ function SuperNoteToEdit({ nota }) {
       console.log(note);
 
       if(note === undefined){
-        const alternativNote = todo[indexCategory].notes[0]
         setNoteSelected(1)
-        // setNoteToEdit(alternativNote)
         console.log(`Error de note selected superior al existente, se imporime nota [0]`)
       }else {
         console.log(`Sin errores, se imprime el note seleccionado`)
@@ -34,7 +32,7 @@ function SuperNoteToEdit({ nota }) {
     } else {
       console.log(`No hay notes para editar`)
     }
-  }, [noteSelected,categorySelected,todo]);
+  }, [noteSelected,categorySelected,todo,notesToRender,setNoteSelected]);
 
 
   return (
