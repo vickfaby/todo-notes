@@ -1,21 +1,38 @@
 @import 'vars';
 
+.createCategory-background{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  opacity: 0.8;
+  background: #000000;
+}
+
+.createCategory-background-generalContainer{
+  display: none;
+}
 .createCategory {
   position: absolute;
   background: var(--colorWhite);
-  border: 1px solid var(--colorGray);
+  border: 2px solid var(--colorGreen);
   width: 20rem;
   height: 12rem;
   padding: 1rem;
   border-radius: 0.5rem;
   left: calc(50% - 10rem);
   top: calc(50% - 5rem);
-  display: none;
   z-index: 2;
+}
+.createCategory > h2 {
+  color: var(--colorGray);
+  font-weight: 400;
 }
 .createCategory > input {
   width: 100%;
 }
+
+
 .createCategory-buttonContainer {
   display: flex;
   justify-content: space-between;

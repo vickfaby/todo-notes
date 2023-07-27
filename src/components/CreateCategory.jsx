@@ -9,29 +9,38 @@ function CreateCategory() {
 
   const handleClickAccept = () => {
     const inputCategory = document.getElementById('createCategory-input');
-    const createCategoryDiv = document.getElementById('createCategory');
+    const createCategoryDiv = document.getElementById('createCategory-background-generalContainer');
     createCategory(inputCategory.value);
     console.log(`Se creó ${inputCategory.value}`);
     createCategoryDiv.style.display = 'none';
   };
   const handleClickCancel = () => {
     const inputCategory = document.getElementById('createCategory-input');
-    const createCategoryDiv = document.getElementById('createCategory');
-    inputCategory.value ='';
+    const createCategoryDiv = document.getElementById('createCategory-background-generalContainer');
+    inputCategory.value = '';
     createCategoryDiv.style.display = 'none';
   };
   return (
-    <div id="createCategory" className="createCategory">
-      <h2>Create Category</h2>
-      <input type="text" placeholder="Sin nombre" id="createCategory-input" />
-      <div className="createCategory-buttonContainer">
-        <div className="createCategory-buttonContainer-cancel"
-        onClick={() => handleClickCancel()}>Cancelar</div>
-        <div
-          className="createCategory-buttonContainer-accept"
-          onClick={() => handleClickAccept()}
-        >
-          Aceptar
+    <div id='createCategory-background-generalContainer' className='createCategory-background-generalContainer'>
+
+      <div className="createCategory-background" />
+
+      <div id="createCategory" className="createCategory">
+        <h2>Create Category</h2>
+        <input type="text" placeholder="Sin nombre" id="createCategory-input" />
+        <div className="createCategory-buttonContainer">
+          <div
+            className="createCategory-buttonContainer-cancel"
+            onClick={() => handleClickCancel()}
+          >
+            Cancelar
+          </div>
+          <div
+            className="createCategory-buttonContainer-accept"
+            onClick={() => handleClickAccept()}
+          >
+            Aceptar
+          </div>
         </div>
       </div>
     </div>

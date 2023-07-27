@@ -225,7 +225,7 @@ function MyProvider({ children }) {
   };
 
   const showCreateCategoryDiv = () => {
-    document.getElementById('createCategory').style.display = 'block';
+    document.getElementById('createCategory-background-generalContainer').style.display = 'block';
   };
 
   const generateRandomId = () => {

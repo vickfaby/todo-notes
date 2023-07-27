@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import '../styles/ButtonSizeBar.scss';
 
 function ButtonSizeBar() {
-  const [state, setState] = useState(false);
+  const [state, setState] = useState(true);
 
   const hideNamesOfButtons = () => {
     document.getElementById('buttonLateral-Inicio').className =
@@ -38,7 +38,7 @@ function ButtonSizeBar() {
       hideNamesOfButtons();
       console.log(`Se achica`);
     } else {
-      lateralBar.style.width = '50%';
+      lateralBar.style.width = '30%';
       showNamesOfButtons();
       console.log(`Se agranda`);
     }

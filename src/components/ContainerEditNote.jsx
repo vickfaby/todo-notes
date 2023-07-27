@@ -81,7 +81,7 @@ function ContainerEditNote() {
       }
     } else {
       document.getElementById('containerEditNote-editNotes').style.display =
-        'block';
+        'flex';
       document.getElementById(
         'containerNotesMini-addCategoryShortInEdit'
       ).style.display = 'flex';
@@ -134,8 +134,8 @@ function ContainerEditNote() {
         </div>
       </div>
 
-      <div className="containerEditNote-container">
-        <div id='containerEditNote-editNotes' >
+      <div id='containerEditNote-editNotes' className="containerEditNote-container">
+        <div className='containerEditNote-miniEditNotesContainer' >
           <div
             id="containerNotesMini-addNoteShortInEdit"
             className="containerNotesMini-addNoteShortInEdit"

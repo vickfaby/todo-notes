@@ -5,15 +5,20 @@
   background: var(--colorWhiteDark);
   box-shadow: 2px 3px 10px 2px rgba(0, 0, 0, 0.4901960784);
   height: 36rem;
-  min-width: 29.5rem;
-  width: 29.5rem;
-  max-width: 29.5rem;
+  // min-width: 29.5rem;
+  // width: 29.5rem;
+  // max-width: 29.5rem;
+  width: calc(100% - 4rem);
+  max-width: 30rem;
   margin: -5rem auto 1rem auto;
   border: 0px solid #000000;
   border-radius: 0.5rem;
   padding: 1rem;
   position: relative;
   z-index: 1;
+}
+.containerEditNote-miniEditNotesContainer{
+  width: auto;
 }
 .containerEditNote-categoryName {
   display: flex;
@@ -48,7 +53,7 @@
   align-items: flex-start;
   border-bottom: 1px solid var(--colorGray);
   border-top: 1px solid var(--colorGray);
-  padding: 1rem;
+  // padding: 1rem;
   margin-right: 0.5rem;
 }
 .containerEditNote-notes > div {
