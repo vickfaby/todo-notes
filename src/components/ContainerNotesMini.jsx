@@ -38,6 +38,7 @@ function ContainerNotesMini() {
       const createNoteButton = document.getElementById(
         'containerNotesMini-addNoteBig'
       );
+
       const createNoteButtonShort = document.getElementById(
         'containerNotesMini-addNoteShort'
       );
@@ -51,6 +52,9 @@ function ContainerNotesMini() {
       createNoteButtonShort.style.display = 'none';
 
       if (todo.length > 0) {
+        const categoryDiv = document.getElementById(
+          'containerNotesMini-category-div'
+        );
         const createNoteButtonBig = document.getElementById(
           'containerNotesMini-addNoteBig'
         );
@@ -60,16 +64,21 @@ function ContainerNotesMini() {
         const createCategoryButtonShort = document.getElementById(
           'containerNotesMini-addCategoryShort'
         );
+        categoryDiv.style.display = 'block'
         createNoteButtonBig.style.display = 'flex';
         createCategoryButtonBig.style.display = 'none';
         createCategoryButtonShort.style.display = 'flex';
       } else {
+        const categoryDiv = document.getElementById(
+          'containerNotesMini-category-div'
+        );
         const createCategoryButtonBig = document.getElementById(
           'containerNotesMini-addCategoryBig'
         );
         const createCategoryButtonShort = document.getElementById(
           'containerNotesMini-addCategoryShort'
         );
+        categoryDiv.style.display='none'
         createCategoryButtonBig.style.display = 'flex';
         createCategoryButtonShort.style.display = 'none';
       }
@@ -118,7 +127,7 @@ function ContainerNotesMini() {
         </div>
       </div>
 
-      <div className="containerNotesMini-category-div">
+      <div id='containerNotesMini-category-div' className="containerNotesMini-category-div">
         <div className="containerNotesMini-category-notesTitle">
           <p>Libretas</p>
           <p>{'>'}</p>

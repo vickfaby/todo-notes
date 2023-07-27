@@ -14,6 +14,7 @@ import CreateCategory from '../components/CreateCategory';
 import ReadAndEditNote from '../components/ReadAndEditNote';
 import SuperNoteToEdit from '../components/SuperNoteToEdit';
 import LateralCategoryContainer from '../components/LateralCategoryContainer';
+import logo from '../assets/images/notesLogo.png'
 import ButtonSizeBar from '../components/ButtonSizeBar';
 
 function App() {
@@ -24,18 +25,14 @@ function App() {
       <main>
         <div id='main-leteralBar-div' className="main-leteralBar-div">
           <div className="main-leteralBar-logo">
-            <p>Todo</p>
+            <img src={logo} alt="" />
             <p>Notes</p>
           </div>
-          <input type="text" />
-          <div className="main-leteralBar-addButon">+ nuevo</div>
           <ButtonLateralBar value="Inicio" />
-          <ButtonLateralBar value="Notas" />
+          <ButtonLateralBar value="Libretas" />
           <LateralCategoryContainer/>
-          <ButtonLateralBar value="Agenda" />
+          <ButtonLateralBar value="Papelera" />
           <ButtonSizeBar/>
-          {/* <ButtonLateralBar value="Nota" /> */}
-          {/* <ButtonLateralBar value="Papelera" /> */}
 
         </div>
 

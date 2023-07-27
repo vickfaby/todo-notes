@@ -43,9 +43,6 @@ function NoteMiniToEdit({ note }) {
       <div>
         <p>{note?.creationDate || 'Sin fecha'}</p>
       </div>
-      <div>
-        <p>{note?.categoryName || 'sin category'}</p>
-      </div>
     </div>
   );
 }

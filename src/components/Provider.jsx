@@ -115,37 +115,60 @@ function MyProvider({ children }) {
   const [containerSelected, setContainerSelected] = useState('inicio');
   const [creatingNewNote, setCreatingNewNote] = useState(false);
 
-
+  const getCategoryName = () => {
+    const indexCategory = todo.findIndex(
+      (item) => item.id === categorySelected
+    );
+    const categoryName =
+      todo.length > 0 ? todo[indexCategory].name : 'Sin categoría';
+    return categoryName;
+  };
   const showContainerNotesMini = () => {
+    console.log(todo);
     console.log(`Este es el todo original`);
     console.log();
     const containerNotesMini = document.getElementById('containerNotesMini');
     const containerEditNote = document.getElementById('containerEditNote');
-    const superNote = document.getElementById('cosa');
+    const buttonInicio = document.getElementById('buttonLateral-Inicio');
+    const buttonLibretas = document.getElementById('buttonLateral-Libretas');
+    buttonInicio.style.background = 'var(--colorBlueLight)';
+    buttonLibretas.style.background = 'var(--colorBlueDark)';
     setContainerSelected('inicio');
+
     console.log(`El container cambio a inicio`);
     containerEditNote.style.display = 'none';
     containerNotesMini.style.display = 'block';
   };
 
+  const markButtonOfCategorySelected = () => {
+    const categoryName = getCategoryName();
+
+    todo.forEach((item) => {
+      if (document.getElementById(`buttonLateral-${item.name}`)) {
+        const button = document.getElementById(`buttonLateral-${item.name}`);
+        if (item.name === categoryName) {
+          button.style.background = 'var(--colorBlueLight)';
+        } else {
+          button.style.background = 'var(--colorBlueDark)';
+        }
+      }
+    });
+    console.log(`Se ejecuto markCategory en ${categoryName}`);
+  };
   const showContainerEditNote = () => {
+    markButtonOfCategorySelected();
+
     const containerNotesMini = document.getElementById('containerNotesMini');
     const containerEditNote = document.getElementById('containerEditNote');
-    const superNote = document.getElementById('cosa');
+    const buttonLibretas = document.getElementById('buttonLateral-Libretas');
+    const buttonInicio = document.getElementById('buttonLateral-Inicio');
+    buttonInicio.style.background = 'var(--colorBlueDark)';
+    buttonLibretas.style.background = 'var(--colorBlueLight)';
     setContainerSelected('notes');
     console.log(`El container cambio a notes`);
     containerNotesMini.style.display = 'none';
     containerEditNote.style.display = 'block';
   };
-
-  const showSuperNotesOnly = () => {
-    const containerNotesMini = document.getElementById('containerNotesMini');
-    const containerEditNote = document.getElementById('containerEditNote');
-    const superNote = document.getElementById('cosa');
-    console.log(`El container cambio a Supernota`);
-    containerEditNote.style.display = 'none';
-    containerNotesMini.style.display = 'none';
-  }
 
   const titleHandler = (data) => {
     const newTodo = [...todo];
@@ -179,13 +202,17 @@ function MyProvider({ children }) {
       (category) => category.id === categorySelected
     );
 
+    const time = new Date();
+
+    const formattedDate = `${time.getFullYear()}/${time.getMonth()}/${time.getDate()}`
+
     const emptyNote = {
       id: todo[indexOfCategory].notes.length + 1,
       title: 'Titulo',
       content: 'Empieza a escribir...',
       categoryId: categorySelected,
       categoryName: todo[indexOfCategory].name,
-      creationDate: 'DD/MM/AA',
+      creationDate: formattedDate,
       lastModification: 'DD/MM/AA',
       color: '#784561',
     };
@@ -202,16 +229,16 @@ function MyProvider({ children }) {
   };
 
   const generateRandomId = () => {
-    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    let id = "";
-    for (let i = 0; i < 10; i+=1) {
+    const letters =
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let id = '';
+    for (let i = 0; i < 10; i += 1) {
       id += letters[Math.floor(Math.random() * letters.length)];
     }
     return id;
-  }
+  };
 
   const createCategory = (nameCategory) => {
-
     setCategoriesCreated(categoriesCreated + 1);
 
     const newTodo = [...todo];
@@ -223,13 +250,11 @@ function MyProvider({ children }) {
     };
 
     newTodo.push(newCategory);
-    setCategorySelected(newCategory.id)
+    setCategorySelected(newCategory.id);
     setTodo(newTodo);
     showContainerNotesMini();
     console.log(newTodo);
   };
-
-
 
   const obj = {
     todo,
@@ -251,7 +276,7 @@ function MyProvider({ children }) {
     createNewNote,
     createCategory,
     showCreateCategoryDiv,
-    showSuperNotesOnly,
+    markButtonOfCategorySelected,
   };
 
   return <MyContext.Provider value={obj}>{children}</MyContext.Provider>;

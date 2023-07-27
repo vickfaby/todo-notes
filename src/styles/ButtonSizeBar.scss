@@ -2,6 +2,16 @@
 
 .ButtonSizeBar{
     color: var(--colorWhite);
-    background: var(--colorGreen);
-    margin-top: 2rem;
+    background: var(--colorBlueLight);
+    /* margin-top: 2rem; */
+    text-align: center;
+    width: 4rem;
+    height: 3rem;
+    /* font-size: 1rem; */
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem auto;
 }
+

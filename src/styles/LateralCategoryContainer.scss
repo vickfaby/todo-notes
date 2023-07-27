@@ -1,5 +1,24 @@
 @import 'vars';
 
-.LateralCategoryContainer{
-margin-left: 1rem;
+.LateralCategoryContainer {
+  margin-left: 1rem;
 }
+
+.LateralCategoryContainerHidden {
+  margin-left: 0rem;
+  overflow-x: hidden;
+}
+
+.LateralCategoryContainerHidden > div {
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: var(--color3); */
+    color: #FFFFFF;
+    width: 4rem;
+    height: 4rem;
+}
+.LateralCategoryContainerHidden > div > p {
+    display: none;
+ }

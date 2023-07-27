@@ -5,7 +5,8 @@
   background: var(--colorWhiteDark);
   box-shadow: 2px 3px 10px 2px rgba(0, 0, 0, 0.4901960784);
   height: 36rem;
-  width: calc(100% - 4rem);
+  min-width: 29.5rem;
+  width: 29.5rem;
   max-width: 29.5rem;
   margin: -5rem auto 1rem auto;
   border: 0px solid #000000;
@@ -14,28 +15,46 @@
   position: relative;
   z-index: 1;
 }
+.containerEditNote-categoryName {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 1px solid var(--colorGray);
+  margin-bottom: 1rem;
+}
+.containerEditNote-categoryName > h2 {
+  font-weight: 500;
+  color: var(--colorGreen);
+  text-transform: capitalize;
+  margin-left: 0.5rem;
+}
 
-
-
-.containerEditNote > p {
+.containerEditNote-categoryName > p {
   color: var(--colorGray);
 }
 .containerEditNote-container {
   display: flex;
+  height: 26rem;
 }
 .containerEditNote-notes {
-  width: 40%;
-  height: 28rem;
+  width: 100%;
+  height: calc(100% - 2.4rem);
   background: var(--colorWhiteDark);
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  border-bottom: 1px solid var(--colorGray);
+  border-top: 1px solid var(--colorGray);
+  padding: 1rem;
+  margin-right: 0.5rem;
 }
 .containerEditNote-notes > div {
   margin-top: 0.5rem;
   margin-right: 0.5rem;
-  min-width: 9rem;
+  min-width: 8rem;
   /* max-width: 12rem; */
   width: calc(100% - 0.5rem);
   max-height: 10rem;
@@ -48,6 +67,7 @@
   background: transparent;
   justify-content: space-evenly;
   width: 10rem;
+  height: 2.4rem;
 }
 
 .containerNotesMini-addCategoryShortInEdit {
@@ -55,12 +75,21 @@
   align-items: center;
   justify-content: space-around;
   width: 10rem;
-  margin: 0.5rem auto;
+  margin: 2rem auto;
   color: var(--colorGray);
 }
 
-
-.containerNotesMini-addCategoryBigInEdit{
+.containerNotesMini-addCategoryBigInEdit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  top: calc(50% - 1rem);
+  left: 0rem;
+  color: var(--colorGray);
+}
+.containerNotesMini-addNoteBigInEdit {
   display: flex;
   flex-direction: column;
   align-items: center;

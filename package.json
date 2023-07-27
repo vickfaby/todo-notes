@@ -8,7 +8,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "format": "prettier --write {*.js,src/**/*.{js,jsx}}"
+    "format": "prettier --write {*.js,src/**/*.{js,jsx}}",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+
   },
   "devDependencies": {
     "@babel/cli": "^7.21.5",
@@ -37,18 +40,19 @@
     "webpack-cli": "^5.1.1",
     "webpack-dev-server": "^4.15.0"
   },
+  "homepage": "https://vickFaby.github.io/todo-notes",
   "dependencies": {
+    "axios": "^1.4.0",
     "babel-cli": "^6.26.0",
     "node": "^20.4.0",
-    "webpack": "^5.88.1",
-    "webpack-cli": "^5.1.4",
-    "axios": "^1.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "^5.0.1",
     "react-router": "^6.11.1",
     "react-router-dom": "^6.11.1",
-    "react-transition-group": "^4.4.5"
+    "react-scripts": "^5.0.1",
+    "react-transition-group": "^4.4.5",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4"
   },
   "author": "vickFaby",
   "license": "MIT",

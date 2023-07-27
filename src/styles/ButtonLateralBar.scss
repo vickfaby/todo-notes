@@ -3,15 +3,31 @@
 .buttonLateral-div {
   padding: 0.5rem;
   display: flex;
-  justify-content: left;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: baseline;
   background: var(--color3);
   color: #FFFFFF;
   width: 100%;
-  margin: 0.5rem auto;
 }
-
+.buttonLateral-div > p{
+  margin-left: 0.5rem;
+}
 .buttonLateral-div:hover{
     cursor: pointer;
     background: var(--colorBlueLight);
+}
+
+.buttonLateral-divHidden {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: var(--color3); */
+  color: #FFFFFF;
+  width: 4rem;
+  height: 4rem;
+}
+
+.buttonLateral-divHidden > p {
+  display: none;
 }
