@@ -40,7 +40,7 @@
     "webpack-cli": "^5.1.1",
     "webpack-dev-server": "^4.15.0"
   },
-  "homepage": "https://vickFaby.github.io/todo-notes",
+  "homepage": "https://vickfaby.github.io/todo-notes",
   "dependencies": {
     "axios": "^1.4.0",
     "babel-cli": "^6.26.0",
@@ -54,7 +54,11 @@
     "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4"
   },
-  "author": "vickFaby",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vickfaby/todo-notes.git"
+  },
+  "author": "VickFaby",
   "license": "MIT",
   "browserslist": {
     "production": [
