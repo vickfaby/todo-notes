@@ -12,6 +12,7 @@ function CreateCategory() {
     const createCategoryDiv = document.getElementById('createCategory-background-generalContainer');
     createCategory(inputCategory.value);
     console.log(`Se creó ${inputCategory.value}`);
+    inputCategory.value = '';
     createCategoryDiv.style.display = 'none';
   };
   const handleClickCancel = () => {
@@ -26,8 +27,8 @@ function CreateCategory() {
       <div className="createCategory-background" />
 
       <div id="createCategory" className="createCategory">
-        <h2>Create Category</h2>
-        <input type="text" placeholder="Sin nombre" id="createCategory-input" />
+        <h2>Crea una libreta</h2>
+        <input type="text" placeholder="Ej. Ideas de negocio..."  id="createCategory-input" />
         <div className="createCategory-buttonContainer">
           <div
             className="createCategory-buttonContainer-cancel"

@@ -8,6 +8,8 @@ import ButtonOptions from './ButtonOptions';
 import NoteMini from './NoteMini';
 import '../styles/ContainerNotesMini.scss';
 import { MyContext } from './Provider';
+import ButtonCreateNewCategoryShort from './ButtonCreateNewCategoryShort';
+import ButtonCreateNewNoteShort from './ButtonCreateNewNoteShort';
 
 function ContainerNotesMini() {
   const {
@@ -40,14 +42,14 @@ function ContainerNotesMini() {
       );
 
       const createNoteButtonShort = document.getElementById(
-        'containerNotesMini-addNoteShort'
+        'button-addNoteShort'
       );
       createNoteButton.style.display = 'none';
       createNoteButtonShort.style.display = 'flex';
     } else {
       console.log(`No hay notas creadas`);
       const createNoteButtonShort = document.getElementById(
-        'containerNotesMini-addNoteShort'
+        'button-addNoteShort'
       );
       createNoteButtonShort.style.display = 'none';
 
@@ -62,7 +64,7 @@ function ContainerNotesMini() {
           'containerNotesMini-addCategoryBig'
         );
         const createCategoryButtonShort = document.getElementById(
-          'containerNotesMini-addCategoryShort'
+          'button-addCategoryShort'
         );
         categoryDiv.style.display = 'block'
         createNoteButtonBig.style.display = 'flex';
@@ -76,7 +78,7 @@ function ContainerNotesMini() {
           'containerNotesMini-addCategoryBig'
         );
         const createCategoryButtonShort = document.getElementById(
-          'containerNotesMini-addCategoryShort'
+          'button-addCategoryShort'
         );
         categoryDiv.style.display='none'
         createCategoryButtonBig.style.display = 'flex';
@@ -132,21 +134,12 @@ function ContainerNotesMini() {
           <p>Libretas</p>
           <p>{'>'}</p>
         </div>
+
         <div className="containerNotesMini-category-div-categories">
-          <div
-            id="containerNotesMini-addCategoryShort"
-            className="containerNotesMini-addCategoryShort"
-          >
-            <p>Nueva libreta</p>
-            <div
-              className="containerNotesMini-addCategoryButton"
-              onClick={showCreateCategoryDiv}
-            >
-              +
-            </div>
-          </div>
+    <ButtonCreateNewCategoryShort/>
           {categoriesToRender}
         </div>
+
       </div>
 
       <div className="containerNotesMini-NoteContainer-div">
@@ -155,19 +148,7 @@ function ContainerNotesMini() {
           <ButtonOptions value="op" />
         </div>
         <div className="noteMiniContainer-div">
-          
-        <div
-        id="containerNotesMini-addNoteShort"
-        className="containerNotesMini-addNoteShort"
-      >
-        <p>Nueva Nota</p>
-        <div
-          className="containerNotesMini-addCategoryButton"
-          onClick={createNewNote}
-        >
-          +
-        </div>
-      </div>
+          <ButtonCreateNewNoteShort/>
 
           {notitas}</div>
       </div>

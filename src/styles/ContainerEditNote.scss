@@ -1,24 +1,22 @@
 @import 'vars';
 
 .containerEditNote {
-  display: none; //block
   background: var(--colorWhiteDark);
-  box-shadow: 2px 3px 10px 2px rgba(0, 0, 0, 0.4901960784);
-  height: 36rem;
-  // min-width: 29.5rem;
-  // width: 29.5rem;
-  // max-width: 29.5rem;
-  width: calc(100% - 4rem);
-  max-width: 30rem;
-  margin: -5rem auto 1rem auto;
+  box-shadow: 2px 3px 20px 2px rgba(0, 0, 0, 0.4901960784);
+  display: none;
+  height: 50%;
+  width: calc(100% - 1rem);
+  /* max-width: 30rem; */
+  margin: -4rem 0.5rem 1rem 0.5rem;
   border: 0px solid #000000;
   border-radius: 0.5rem;
   padding: 1rem;
   position: relative;
+  overflow-y: scroll;
   z-index: 1;
 }
 .containerEditNote-miniEditNotesContainer{
-  width: auto;
+  width: 40%;
 }
 .containerEditNote-categoryName {
   display: flex;
@@ -41,11 +39,11 @@
 }
 .containerEditNote-container {
   display: flex;
-  height: 26rem;
+  height: calc(100% - 8rem);
 }
 .containerEditNote-notes {
   width: 100%;
-  height: calc(100% - 2.4rem);
+  height: calc(100% - 1.5rem);
   background: var(--colorWhiteDark);
   overflow-y: scroll;
   display: flex;
@@ -65,24 +63,7 @@
   max-height: 10rem;
 }
 
-.containerNotesMini-addNoteShortInEdit {
-  display: flex;
-  align-items: center;
-  color: var(--colorGray);
-  background: transparent;
-  justify-content: space-evenly;
-  width: 10rem;
-  height: 2.4rem;
-}
 
-.containerNotesMini-addCategoryShortInEdit {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 10rem;
-  margin: 2rem auto;
-  color: var(--colorGray);
-}
 
 .containerNotesMini-addCategoryBigInEdit {
   display: flex;
@@ -103,4 +84,10 @@
   top: calc(50% - 1rem);
   left: 0rem;
   color: var(--colorGray);
+}
+
+.containerEditNote-containerCreateCategoryButton{
+  display: flex;
+    justify-content: center;
+    margin-top: 2rem;
 }

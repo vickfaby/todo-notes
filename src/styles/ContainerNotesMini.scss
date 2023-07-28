@@ -4,10 +4,10 @@
   background: var(--colorWhiteDark);
   box-shadow: 2px 3px 20px 2px rgba(0, 0, 0, 0.4901960784);
   display: block;
-  height: calc(36rem);
-  width: calc(100% - 4rem);
-  max-width: 30rem;
-  margin: -5rem auto 1rem auto;
+  height: 50%;
+  width: calc(100% - 1rem);
+  /* max-width: 30rem; */
+  margin: -4rem 0.5rem 1rem 0.5rem;
   border: 0px solid #000000;
   border-radius: 0.5rem;
   padding: 1rem;
@@ -22,27 +22,6 @@
   display: block;
   top: calc(50% - 1rem);
   left: calc(50% - 6rem);
-}
-
-.containerNotesMini-addCategoryShort {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  width: 9rem;
-  min-width: 9rem;
-  justify-content: space-evenly;
-  color: var(--colorGray);
-}
-
-.containerNotesMini-addNoteShort{
-  display: none;
-  flex-direction: row-reverse;
-  align-items: center;
-  width: 9rem;
-  min-width: 9rem;
-  justify-content: space-around;
-  color: var(--colorGray);
-  margin: 0 auto;
 }
 
 .containerNotesMini-addNoteBig {
@@ -144,9 +123,9 @@
   overflow-y: scroll;
   justify-content: space-evenly;
   display: grid;
-  grid-template-rows: 15rem;
-  grid-template-columns: repeat(auto-fill, minmax(6rem, 10rem));
-  grid-auto-rows: 15rem;
+  grid-template-rows: 10rem;
+  grid-template-columns: repeat(auto-fill, minmax(6rem, 7rem));
+  grid-auto-rows: 10rem;
   grid-auto-columns: 7rem;
   gap: 1rem;
   padding-top: 1rem;

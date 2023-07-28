@@ -40,7 +40,7 @@ function App() {
           <div className="main-home-welcome">
             <p>Crea,</p>
             <p>organiza,</p>
-            <p>contruye!</p>
+            <p>construye!</p>
             <img src={foto} alt="" />
           </div>
 

@@ -42,7 +42,7 @@ function ButtonLateralBar({ value, id }) {
     Inicio: 'fa-solid fa-house',
     Libretas: 'fa-solid fa-book',
     Papelera: 'fa-solid fa-trash',
-    NotaCreada: 'fa-solid fa-receipt',
+    NotaCreada: 'fa-solid fa-note-sticky',
   };
 
   useEffect(() => {
