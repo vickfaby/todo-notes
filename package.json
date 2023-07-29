@@ -11,7 +11,6 @@
     "format": "prettier --write {*.js,src/**/*.{js,jsx}}",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
-
   },
   "devDependencies": {
     "@babel/cli": "^7.21.5",
@@ -56,7 +55,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vickfaby/todo-notes.git"
+    "url": "git+https://github.com/vickfaby/todo-notes.git"
   },
   "author": "VickFaby",
   "license": "MIT",
@@ -71,5 +70,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "bugs": {
+    "url": "https://github.com/vickfaby/todo-notes/issues"
   }
 }
