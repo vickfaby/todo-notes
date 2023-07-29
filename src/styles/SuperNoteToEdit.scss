@@ -10,6 +10,8 @@
   box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.22);
   border-radius: 0.5rem;
   text-transform: capitalize;
+  transition: margin-left 2s linear;
+  margin-left: 0rem;
 }
 .containerEditNote-editNotes-noteInfo {
   border-bottom: 1px solid var(--colorGray);
@@ -45,12 +47,21 @@
 }
 .containerEditNote-editNotes-editNote > textarea {
   width: 100%;
-  height: calc(100% - 7rem);
+  height: calc(100% - 8rem);
   background: var(--colorWhite);
   border: none;
   font-size: 1rem;
 }
 
-.containerEditNote-editNotes-editNote :nth-child(1) {
-  font-weight: 900;
+.superNoteToEdit-trashContainer{
+  cursor: pointer;
+  display: flex;
+  color: var(--colorGray);
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: center;
+
+}
+.superNoteToEdit-trashContainer > p {
+  margin-left: 0.5rem;
 }

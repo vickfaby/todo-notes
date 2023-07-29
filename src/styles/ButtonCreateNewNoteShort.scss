@@ -1,10 +1,11 @@
 @import 'vars';
 .button-addNoteShort{
     display: flex;
-    align-items: baseline;
+    align-items: center;
     width: 7rem;
     min-width: 7rem;
     justify-content: space-around;
     color: var(--colorGray);
     margin: 0 auto;
+    flex-direction: row;
   }

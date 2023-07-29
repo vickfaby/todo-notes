@@ -5,12 +5,12 @@ import { MyContext } from './Provider'
 import '../styles/ButtonCreateNewNoteShort.scss'
 
 function ButtonCreateNewNoteShort() {
-    const { createNewNote } = useContext(MyContext);
+    const { showCreateNoteDiv } = useContext(MyContext);
   return (
     <div
     id="button-addNoteShort"
     className="button-addNoteShort"
-    onClick={createNewNote}
+    onClick={showCreateNoteDiv}
   >
     <span className='fa-solid fa-circle-plus'/>
     <p>Add Nota</p>

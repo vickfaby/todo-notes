@@ -15,7 +15,10 @@
   overflow-y: scroll;
   z-index: 1;
 }
-
+.ContainerNotesMini::-webkit-scrollbar {
+  width: 0;
+  background-color: transparent; /* Opcional: Puedes ajustar el color del fondo del área del scroll oculto */
+}
 .ContainerNotesMini > p {
   color: var(--colorGray);
   position: absolute;
@@ -86,12 +89,20 @@
   overflow-x: scroll;
   //border-bottom: 1px solid var(--color2);
 }
+.containerNotesMini-category-div::-webkit-scrollbar {
+  width: 0;
+  background-color: transparent; /* Opcional: Puedes ajustar el color del fondo del área del scroll oculto */
+}
 .containerNotesMini-category-div-categories {
   display: flex;
   align-items: center;
   padding-bottom: 0.5rem;
   overflow-x: scroll;
   max-width: 100%;
+}
+.containerNotesMini-category-div-categories::-webkit-scrollbar {
+  width: 0;
+  background-color: transparent; /* Opcional: Puedes ajustar el color del fondo del área del scroll oculto */
 }
 .containerNotesMini-category-notesTitle {
   display: flex;
@@ -130,3 +141,9 @@
   gap: 1rem;
   padding-top: 1rem;
 }
+
+.noteMiniContainer-div::-webkit-scrollbar {
+  width: 0;
+  background-color: transparent; /* Opcional: Puedes ajustar el color del fondo del área del scroll oculto */
+}
+

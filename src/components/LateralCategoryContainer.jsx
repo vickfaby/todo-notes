@@ -17,6 +17,7 @@ function LateralCategoryContainer() {
       ));
       setCategories(data);
     } else {
+      setCategories([]);
       console.log('El Todo esta vacio!!!!!!!!!!!');
     }
   }, [todo]);

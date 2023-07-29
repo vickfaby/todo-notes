@@ -19,8 +19,9 @@ function ContainerEditNote() {
     creatingNewNote,
     setCreatingNewNote,
     showCreateCategoryDiv,
-    createNewNote,
+    showCreateNoteDiv,
     markButtonOfCategorySelected,
+    eraseCategory
   } = useContext(MyContext);
 
   const [notitas, setNotitas] = useState([]);
@@ -28,7 +29,7 @@ function ContainerEditNote() {
   const [category, setCategory] = useState('');
 
   useEffect(() => {
-    if (notesToRender.length > 0) {
+    if (notesToRender.length > 0 && categorySelected !== '') {
       setCategory(todo.filter((item) => item.id === categorySelected)[0].name);
       const notas = notesToRender.filter((obj) => obj.id === noteSelected)[0];
       setNota(notas);
@@ -47,9 +48,7 @@ function ContainerEditNote() {
       document.getElementById(
         'button-addCategoryShortContainer'
       ).style.display = 'none';
-      document.getElementById(
-        'button-addNoteShort'
-      ).style.display = 'none';
+      document.getElementById('button-addNoteShort').style.display = 'none';
       document.getElementById(
         'containerNotesMini-addNoteBigInEdit'
       ).style.display = 'flex';
@@ -58,28 +57,27 @@ function ContainerEditNote() {
 
       if (todo.length === 0) {
         document.getElementById(
+          'containerNotesMini-categoryName'
+        ).style.display = 'none';
+        document.getElementById(
           'containerNotesMini-addCategoryBigInEdit'
         ).style.display = 'flex';
         document.getElementById(
           'containerNotesMini-addNoteBigInEdit'
         ).style.display = 'none';
-        document.getElementById(
-          'button-addNoteShort'
-        ).style.display = 'none';
+        document.getElementById('button-addNoteShort').style.display = 'none';
         document.getElementById('containerEditNote-description').style.display =
           'none';
-          document.getElementById(
-            'button-addCategoryShortContainer'
-          ).style.display = 'none';
       } else {
+        document.getElementById(
+          'containerNotesMini-categoryName'
+        ).style.display = 'flex';
         document.getElementById(
           'containerNotesMini-addCategoryBigInEdit'
         ).style.display = 'none';
         document.getElementById('containerEditNote-description').style.display =
           'block';
-        document.getElementById(
-          'button-addCategoryShortContainer'
-        ).style.display = 'flex';
+
         setCategory(
           todo.filter((item) => item.id === categorySelected)[0].name
         );
@@ -90,9 +88,7 @@ function ContainerEditNote() {
       document.getElementById(
         'button-addCategoryShortContainer'
       ).style.display = 'flex';
-      document.getElementById(
-        'button-addNoteShort'
-      ).style.display = 'flex';
+      document.getElementById('button-addNoteShort').style.display = 'flex';
       document.getElementById(
         'containerNotesMini-addNoteBigInEdit'
       ).style.display = 'none';
@@ -108,9 +104,14 @@ function ContainerEditNote() {
 
   return (
     <div id="containerEditNote" className="containerEditNote">
-      <div className='containerEditNote-categoryName'>
+      <div id='containerNotesMini-categoryName' className="containerEditNote-categoryName">
         <p id="containerEditNote-description">Libreta:</p>
         <h2>{category}</h2>
+        <div className='containerEditNote-optionsContainer'>
+          <div className='containerEditNote-deleteCategory' onClick={eraseCategory}>
+            <span className="fa-solid fa-trash"/>
+          </div>
+        </div>
       </div>
 
       <div
@@ -133,31 +134,29 @@ function ContainerEditNote() {
         <p>Esta libreta está vacía :( </p>
         <div
           className="containerNotesMini-addCategoryButton"
-          onClick={createNewNote}
+          onClick={showCreateNoteDiv}
         >
           +
         </div>
       </div>
 
-      <div id='containerEditNote-editNotes' className="containerEditNote-container">
-        <div className='containerEditNote-miniEditNotesContainer' >
+      <div
+        id="containerEditNote-editNotes"
+        className="containerEditNote-container"
+      >
+        <div className="containerEditNote-miniEditNotesContainer">
+          <ButtonCreateNewNoteShort />
 
-          <ButtonCreateNewNoteShort/>
-
-          <div className="containerEditNote-notes">
-          {notitas}
-          </div>
-
+          <div className="containerEditNote-notes">{notitas}</div>
         </div>
         <SuperNoteToEdit key={nota?.id} />
       </div>
-      <div id='button-addCategoryShortContainer' className='containerEditNote-containerCreateCategoryButton'>
-
-    <ButtonCreateNewCategoryShort/>
+      <div
+        id="button-addCategoryShortContainer"
+        className="containerEditNote-containerCreateCategoryButton"
+      >
+        <ButtonCreateNewCategoryShort />
       </div>
-
-
-
     </div>
   );
 }

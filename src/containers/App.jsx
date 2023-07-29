@@ -16,12 +16,14 @@ import SuperNoteToEdit from '../components/SuperNoteToEdit';
 import LateralCategoryContainer from '../components/LateralCategoryContainer';
 import logo from '../assets/images/notesLogo.png'
 import ButtonSizeBar from '../components/ButtonSizeBar';
+import CreateNote from '../components/CreateNote';
 
 function App() {
 
   return (
     <MyProvider>
       <CreateCategory />
+      <CreateNote/>
       <main>
         <div id='main-leteralBar-div' className="main-leteralBar-div">
           <div className="main-leteralBar-logo">

@@ -17,7 +17,7 @@ function ContainerNotesMini() {
     categorySelected,
     notesToRender,
     setNotesToRender,
-    createNewNote,
+    showCreateNoteDiv,
     showCreateCategoryDiv,
   } = useContext(MyContext);
 
@@ -54,6 +54,9 @@ function ContainerNotesMini() {
       createNoteButtonShort.style.display = 'none';
 
       if (todo.length > 0) {
+        const noteContainer = document.getElementById(
+          'noteContainer-div'
+        );
         const categoryDiv = document.getElementById(
           'containerNotesMini-category-div'
         );
@@ -70,19 +73,24 @@ function ContainerNotesMini() {
         createNoteButtonBig.style.display = 'flex';
         createCategoryButtonBig.style.display = 'none';
         createCategoryButtonShort.style.display = 'flex';
+        noteContainer.style.display = 'block'
       } else {
-        const categoryDiv = document.getElementById(
-          'containerNotesMini-category-div'
-        );
+        const noteContainer = document.getElementById(
+          'noteContainer-div'
+          );
+          const categoryDiv = document.getElementById(
+            'containerNotesMini-category-div'
+            );
         const createCategoryButtonBig = document.getElementById(
           'containerNotesMini-addCategoryBig'
-        );
-        const createCategoryButtonShort = document.getElementById(
-          'button-addCategoryShort'
-        );
-        categoryDiv.style.display='none'
-        createCategoryButtonBig.style.display = 'flex';
-        createCategoryButtonShort.style.display = 'none';
+          );
+          const createCategoryButtonShort = document.getElementById(
+            'button-addCategoryShort'
+            );
+            categoryDiv.style.display='none'
+            createCategoryButtonBig.style.display = 'flex';
+            createCategoryButtonShort.style.display = 'none';
+            noteContainer.style.display = 'none'
       }
 
       setNotitas([]);
@@ -110,7 +118,7 @@ function ContainerNotesMini() {
         <p>Esta libreta esta vacía :(</p>
         <div
           className="containerNotesMini-addNoteButton"
-          onClick={createNewNote}
+          onClick={showCreateNoteDiv}
         >
           +
         </div>
@@ -142,7 +150,7 @@ function ContainerNotesMini() {
 
       </div>
 
-      <div className="containerNotesMini-NoteContainer-div">
+      <div id='noteContainer-div' className="containerNotesMini-NoteContainer-div">
         <div className="noteContainer-options-div">
           <ButtonOptions value="option" />
           <ButtonOptions value="op" />

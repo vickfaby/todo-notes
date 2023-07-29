@@ -1,0 +1,73 @@
+@import 'vars';
+
+@import 'vars';
+
+.createNote-background{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  opacity: 0.8;
+  background: #000000;
+}
+
+.createNote-background-generalContainer{
+  display: none;
+}
+.createNote {
+  position: absolute;
+  background: var(--colorWhite);
+  border: 2px solid var(--colorGreen);
+  width: 36rem;
+  height: 14rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  left: calc(50% - 18rem);
+  top: calc(50% - 5rem);
+  z-index: 2;
+}
+.createNote > h2 {
+  color: var(--colorGray);
+  font-weight: 400;
+}
+.createNote > input {
+  width: 100%;
+}
+
+.createNote-infoContainer{
+    margin-top: 1rem;
+    display: flex;
+    font-style: italic;
+    color: var(--colorGray);
+    font-size: 1.2rem;
+}
+
+.createNote-infoContainer > p:nth-child(2){
+    color: var(--colorGreen);
+    text-transform: capitalize;
+    margin-left: 0.5rem;
+}
+
+.createNote-buttonContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.createNote-buttonContainer-accept {
+  width: 10rem;
+  text-align: center;
+  background: var(--colorGreen);
+  color: var(--colorWhite);
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+.createNote-buttonContainer-cancel {
+  width: 10rem;
+  text-align: center;
+  background: var(--colorBlueDark);
+  color: var(--colorWhite);
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}

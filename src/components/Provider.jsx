@@ -116,12 +116,21 @@ function MyProvider({ children }) {
   const [creatingNewNote, setCreatingNewNote] = useState(false);
 
   const getCategoryName = () => {
-    const indexCategory = todo.findIndex(
+    let categoryName = 'sin valor';
+    if (categorySelected) {
+      const indexCategory = todo.findIndex(
+        (item) => item.id === categorySelected
+      );
+      categoryName =
+        todo.length > 0 ? todo[indexCategory].name : 'Sin categoría';
+    }
+    return categoryName;
+  };
+  const getIndexOfCategorySelected = () => {
+    const indexOfCategory = todo.findIndex(
       (item) => item.id === categorySelected
     );
-    const categoryName =
-      todo.length > 0 ? todo[indexCategory].name : 'Sin categoría';
-    return categoryName;
+    return indexOfCategory;
   };
   const showContainerNotesMini = () => {
     console.log(todo);
@@ -131,10 +140,12 @@ function MyProvider({ children }) {
     const containerEditNote = document.getElementById('containerEditNote');
     const buttonInicio = document.getElementById('buttonLateral-Inicio');
     const buttonLibretas = document.getElementById('buttonLateral-Libretas');
+    const superNote = document.getElementById(
+      'containerEditNote-editNotes-editNote'
+    );
     buttonInicio.style.background = 'var(--colorBlueLight)';
     buttonLibretas.style.background = 'var(--colorBlueDark)';
     setContainerSelected('inicio');
-
     console.log(`El container cambio a inicio`);
     containerEditNote.style.display = 'none';
     containerNotesMini.style.display = 'block';
@@ -162,6 +173,9 @@ function MyProvider({ children }) {
     const containerEditNote = document.getElementById('containerEditNote');
     const buttonLibretas = document.getElementById('buttonLateral-Libretas');
     const buttonInicio = document.getElementById('buttonLateral-Inicio');
+    const superNote = document.getElementById(
+      'containerEditNote-editNotes-editNote'
+    );
     buttonInicio.style.background = 'var(--colorBlueDark)';
     buttonLibretas.style.background = 'var(--colorBlueLight)';
     setContainerSelected('notes');
@@ -194,7 +208,7 @@ function MyProvider({ children }) {
     setTodo(newTodo);
   };
 
-  const createNewNote = () => {
+  const createNewNote = (noteNameValue) => {
     setCreatingNewNote(true);
 
     const newTodo = [...todo];
@@ -204,11 +218,11 @@ function MyProvider({ children }) {
 
     const time = new Date();
 
-    const formattedDate = `${time.getFullYear()}/${time.getMonth()}/${time.getDate()}`
+    const formattedDate = `${time.getFullYear()}/${time.getMonth()}/${time.getDate()}`;
 
     const emptyNote = {
       id: todo[indexOfCategory].notes.length + 1,
-      title: 'Titulo',
+      title: noteNameValue === '' ? 'Sin titulo...' : noteNameValue,
       content: 'Empieza a escribir...',
       categoryId: categorySelected,
       categoryName: todo[indexOfCategory].name,
@@ -225,7 +239,14 @@ function MyProvider({ children }) {
   };
 
   const showCreateCategoryDiv = () => {
-    document.getElementById('createCategory-background-generalContainer').style.display = 'block';
+    document.getElementById(
+      'createCategory-background-generalContainer'
+    ).style.display = 'block';
+  };
+  const showCreateNoteDiv = () => {
+    document.getElementById(
+      'createNote-background-generalContainer'
+    ).style.display = 'block';
   };
 
   const generateRandomId = () => {
@@ -256,6 +277,41 @@ function MyProvider({ children }) {
     console.log(newTodo);
   };
 
+  const eraseCategory = () => {
+    console.log(`Se setea la categoría: ${todo.length === 1 ? '' : todo[0].id}`);
+    console.log(`La category selected es: ${categorySelected}`);
+    console.log(`Se eliminara la categoría`);
+    const newTodo = todo.filter((item) => item.id !== categorySelected);
+    setCategorySelected(todo.length === 1 ? '' : newTodo[0].id);
+    setTodo(newTodo);
+    console.log(newTodo);
+  };
+
+  const eraseNote = () => {
+    const newTodo = todo;
+    console.log(`La noteselected es: ${noteSelected}`);
+    console.log(`Se eliminara la nota`);
+
+    const indexNote = newTodo[getIndexOfCategorySelected()].notes.findIndex(
+      (item) => item.id === noteSelected
+    );
+    newTodo[getIndexOfCategorySelected()].notes.splice(indexNote, 1);
+
+    setTodo(newTodo);
+    if (newTodo[getIndexOfCategorySelected()].notes.length === 0) {
+      setNotesToRender([]);
+      setNoteSelected(1)
+    } else {
+      const idNoteAvailable = newTodo[getIndexOfCategorySelected()].notes[0].id
+      setNoteSelected(idNoteAvailable);
+      console.log(`Este es el NOTE SELECTED NUEVO ${idNoteAvailable}`)
+    }
+
+    console.log(`Este es el todo sin la nota`);
+    console.log(todo);
+    console.log(newTodo);
+  };
+
   const obj = {
     todo,
     setTodo,
@@ -276,7 +332,11 @@ function MyProvider({ children }) {
     createNewNote,
     createCategory,
     showCreateCategoryDiv,
+    showCreateNoteDiv,
     markButtonOfCategorySelected,
+    getCategoryName,
+    eraseCategory,
+    eraseNote,
   };
 
   return <MyContext.Provider value={obj}>{children}</MyContext.Provider>;
