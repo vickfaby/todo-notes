@@ -17,6 +17,7 @@ function ButtonLateralBar({ value, id }) {
     setNoteSelected,
     markButtonOfCategorySelected,
     todo,
+    getIndexOfCategorySelected,
   } = useContext(MyContext);
 
   const [icon, setIcon] = useState('');
@@ -27,13 +28,17 @@ function ButtonLateralBar({ value, id }) {
     libretas: 'Libretas',
     etiquetas: 'Etiquetas',
   };
+  const getIndexOfCategory = () => todo.findIndex((item) => item.id === id);
 
   const handle = () => {
-    // eslint-disable-next-line no-unused-vars
-    if (id !== undefined) {
-      console.log(`Se actualiza el noteSelected a 0`);
+    if (id !== undefined && id !== 'Inicio' && id !== 'Libretas' && id !== 'Papelera') {
+      console.log(
+        `Se actualiza el noteSelected a la primera posicion de la libreta ${id}`
+      );
       setCategorySelected(id);
-      setNoteSelected(0); // ayuda a renderizar el SuperNote
+      const idNoteSelected = todo[getIndexOfCategory()].notes.length > 0 ? todo[getIndexOfCategory()].notes[0].id : 0
+      console.log(idNoteSelected);
+      setNoteSelected(idNoteSelected);
     }
     const execute = options[value] ? options[value]() : showContainerEditNote();
   };
@@ -51,13 +56,12 @@ function ButtonLateralBar({ value, id }) {
   }, []);
 
   useEffect(() => {
-      markButtonOfCategorySelected();
-    
+    markButtonOfCategorySelected();
   }, [categorySelected]);
 
   return (
     <div
-      id={`buttonLateral-${value}`}
+      id={`buttonLateral-${id}`}
       className="buttonLateral-div"
       onClick={handle}
     >

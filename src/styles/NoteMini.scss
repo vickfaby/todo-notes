@@ -20,7 +20,7 @@
     color: var(--colorGray);
     font-style: italic;
 }
-.noteMini-div div:nth-child(2) {
+.noteMini-div div:nth-child(2),.noteMini-div div:nth-child(1) {
     overflow-y: overlay;
 }
 .noteMini-div:hover{

@@ -5,7 +5,7 @@ import '../styles/CategoryItem.scss';
 import { MyContext } from './Provider';
 
 function CategoryItem({ idCategory,nameCategory }) {
-  const { categorySelected, setCategorySelected } = useContext(MyContext);
+  const { categorySelected, setCategorySelected, todo,setNoteSelected } = useContext(MyContext);
 
   const paintCategory = () => {
     const item = document.getElementById(idCategory);
@@ -22,7 +22,10 @@ function CategoryItem({ idCategory,nameCategory }) {
 
   const callNotes = (id) => {
     console.log(`Se setea ${id} como categoría actual`)
+    const index = todo.findIndex((item)=>(item.id === id));
+    const idNoteSelected = todo[index].notes.length > 0 ? todo[index].notes[todo[index].notes.length - 1].id : 0 ;
     setCategorySelected(id);
+    setNoteSelected(idNoteSelected)
   };
 
 useEffect(()=>{

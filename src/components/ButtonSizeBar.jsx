@@ -15,6 +15,12 @@ function ButtonSizeBar() {
       'buttonLateral-divHidden';
     document.getElementById('LateralCategoryContainer').className =
       'LateralCategoryContainerHidden';
+    document.getElementById('containerNotesMini').className =
+      'ContainerNotesMini-Hidden';
+    document.getElementById('main-leteralBar-logo').className =
+      'main-leteralBar-logo-Hidden';
+    document.getElementById('containerNotesMini-category-div-categories').className =
+      'containerNotesMini-category-div-categories-Hidden';
   };
 
   const showNamesOfButtons = () => {
@@ -26,9 +32,14 @@ function ButtonSizeBar() {
       'buttonLateral-div';
     document.getElementById('LateralCategoryContainer').className =
       'LateralCategoryContainer';
+      document.getElementById('containerNotesMini').className =
+      'ContainerNotesMini';
+      document.getElementById('main-leteralBar-logo').className =
+      'main-leteralBar-logo';
+      document.getElementById('containerNotesMini-category-div-categories').className =
+      'containerNotesMini-category-div-categories';
   };
   const resize = () => {
-    console.log(`El estado leido es ${state}`);
 
     setState(!state);
     const lateralBar = document.getElementById('main-leteralBar-div');
@@ -36,11 +47,11 @@ function ButtonSizeBar() {
     if (state === true) {
       lateralBar.style.width = '4rem';
       hideNamesOfButtons();
-      console.log(`Se achica`);
+      console.log(`LateralBar se encoge`);
     } else {
       lateralBar.style.width = '30%';
       showNamesOfButtons();
-      console.log(`Se agranda`);
+      console.log(`LateralBar se amplía`);
     }
   };
 

@@ -5,7 +5,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { MyContext } from './Provider';
 import '../styles/SuperNoteToEdit.scss';
 
-function SuperNoteToEdit({ nota }) {
+function SuperNoteToEdit() {
   const {
     titleHandler,
     contentHandler,
@@ -35,14 +35,12 @@ function SuperNoteToEdit({ nota }) {
       if (note === undefined) {
         setNoteSelected(1);
         console.log(
-          `Error de note selected superior al existente, se imporime nota [0]`
+          `Error de note selected superior al existente, se imprime nota [0]`
         );
       } else {
         console.log(`Sin errores, se imprime el note seleccionado`);
         setNoteToEdit(note);
       }
-    } else {
-      console.log(`No hay notes para editar`);
     }
   }, [noteSelected, categorySelected, todo, notesToRender, setNoteSelected]);
 
@@ -66,7 +64,7 @@ function SuperNoteToEdit({ nota }) {
         defaultValue={noteToEdit?.content}
         onChange={(event) => contentHandler(event.target.value)}
       />
-      <div className='superNoteToEdit-trashContainer' onClick={eraseNote}>
+      <div className="superNoteToEdit-trashContainer" onClick={eraseNote}>
         <span className="fa-solid fa-trash" />
         <p>Eliminar</p>
       </div>

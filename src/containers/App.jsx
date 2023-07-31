@@ -26,14 +26,14 @@ function App() {
       <CreateNote/>
       <main>
         <div id='main-leteralBar-div' className="main-leteralBar-div">
-          <div className="main-leteralBar-logo">
+          <div id='main-leteralBar-logo' className="main-leteralBar-logo">
             <img src={logo} alt="" />
             <p>Notes</p>
           </div>
-          <ButtonLateralBar value="Inicio" />
-          <ButtonLateralBar value="Libretas" />
+          <ButtonLateralBar value="Inicio" id='Inicio' />
+          <ButtonLateralBar value="Libretas" id="Libretas"  />
           <LateralCategoryContainer/>
-          <ButtonLateralBar value="Papelera" />
+          <ButtonLateralBar value="Papelera" id="Papelera"  />
           <ButtonSizeBar/>
 
         </div>

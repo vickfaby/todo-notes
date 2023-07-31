@@ -23,6 +23,7 @@
 .containerEditNote-miniEditNotesContainer{
   width: 40%;
   margin: 1rem 1rem 0rem 1rem;
+  max-width: 25vw;
 }
 .containerEditNote-categoryName {
   display: flex;
@@ -66,10 +67,9 @@
 }
 .containerEditNote-notes > div {
   margin-top: 0.5rem;
-  margin-right: 0.5rem;
   min-width: 8rem;
   /* max-width: 12rem; */
-  width: calc(100% - 0.5rem);
+  width: 100%;
   max-height: 10rem;
 }
 
@@ -88,13 +88,13 @@
   justify-content: center;
 }
 .containerNotesMini-addNoteBigInEdit {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 100%;
-  position: absolute;
-  top: calc(50% - 1rem);
-  left: 0rem;
+  height: calc(100% - 4rem );
   color: var(--colorGray);
 }
 

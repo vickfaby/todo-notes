@@ -3,7 +3,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useEffect } from 'react';
 import '../styles/NoteMiniToEdit.scss';
-import { MyContext } from './Provider';
+import { MyContext,  } from './Provider';
 
 function NoteMiniToEdit({ note }) {
   const {

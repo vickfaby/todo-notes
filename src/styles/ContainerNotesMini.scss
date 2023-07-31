@@ -6,7 +6,23 @@
   display: block;
   height: 50%;
   width: calc(100% - 1rem);
-  /* max-width: 30rem; */
+  // max-width: 73.5vw;
+  margin: -4rem auto 1rem auto;
+  border: 0px solid #000000;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  position: relative;
+  overflow-y: scroll;
+  z-index: 1;
+}
+
+.ContainerNotesMini-Hidden {
+  background: var(--colorWhiteDark);
+  box-shadow: 2px 3px 20px 2px rgba(0, 0, 0, 0.4901960784);
+  display: block;
+  height: 50%;
+  width: calc(100% - 1rem);
+  // max-width: 90vw; 
   margin: -4rem 0.5rem 1rem 0.5rem;
   border: 0px solid #000000;
   border-radius: 0.5rem;
@@ -14,6 +30,10 @@
   position: relative;
   overflow-y: scroll;
   z-index: 1;
+}
+.ContainerNotesMini-Hidden::-webkit-scrollbar {
+  width: 0;
+  background-color: transparent; /* Opcional: Puedes ajustar el color del fondo del área del scroll oculto */
 }
 .ContainerNotesMini::-webkit-scrollbar {
   width: 0;
@@ -28,24 +48,28 @@
 }
 
 .containerNotesMini-addNoteBig {
+  cursor: pointer;
   display: none;
   flex-direction: column;
+  /* position: absolute; */
   align-items: center;
+  justify-content: center;
   width: 100%;
-  position: absolute;
-  top: calc(50% - 1rem);
-  left: 0rem;
+  height: calc(100% - 8rem);
   color: var(--colorGray);
+}
+.containerNotesMini-addNoteBig:hover{
+  background: var(--colorWhite);
 }
 
 .containerNotesMini-addCategoryBig{
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 100%;
-  position: absolute;
-  top: calc(50% - 1rem);
-  left: 0rem;
+  height: 100%;
   color: var(--colorGray);
 }
 
@@ -87,7 +111,7 @@
   // max-width: 20rem;
   display: block;
   overflow-x: scroll;
-  //border-bottom: 1px solid var(--color2);
+  border-bottom: 1px solid var(--colorGray);
 }
 .containerNotesMini-category-div::-webkit-scrollbar {
   width: 0;
@@ -98,7 +122,14 @@
   align-items: center;
   padding-bottom: 0.5rem;
   overflow-x: scroll;
-  max-width: 100%;
+  max-width: 70vw;
+}
+.containerNotesMini-category-div-categories-Hidden {
+  display: flex;
+  align-items: center;
+  padding-bottom: 0.5rem;
+  overflow-x: scroll;
+  max-width: 81vw;
 }
 .containerNotesMini-category-div-categories::-webkit-scrollbar {
   width: 0;
@@ -121,7 +152,6 @@
 .containerNotesMini-NoteContainer-div {
   width: -webkit-fill-available;
   height: calc(100% - 7rem);
-  border-top: 1px solid var(--colorGray);
 }
 .noteContainer-options-div {
   background: #ffffff;

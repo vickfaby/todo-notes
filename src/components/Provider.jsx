@@ -115,27 +115,28 @@ function MyProvider({ children }) {
   const [containerSelected, setContainerSelected] = useState('inicio');
   const [creatingNewNote, setCreatingNewNote] = useState(false);
 
-  const getCategoryName = () => {
-    let categoryName = 'sin valor';
-    if (categorySelected) {
-      const indexCategory = todo.findIndex(
-        (item) => item.id === categorySelected
-      );
-      categoryName =
-        todo.length > 0 ? todo[indexCategory].name : 'Sin categoría';
-    }
-    return categoryName;
-  };
   const getIndexOfCategorySelected = () => {
     const indexOfCategory = todo.findIndex(
       (item) => item.id === categorySelected
     );
     return indexOfCategory;
   };
+
+  const getCategoryName = () => {
+    let categoryName = 'sin valor';
+    if (categorySelected) {
+      categoryName =
+        todo.length > 0
+          ? todo[getIndexOfCategorySelected()].name
+          : 'Sin categoría';
+    }
+    return categoryName;
+  };
+
+
   const showContainerNotesMini = () => {
     console.log(todo);
     console.log(`Este es el todo original`);
-    console.log();
     const containerNotesMini = document.getElementById('containerNotesMini');
     const containerEditNote = document.getElementById('containerEditNote');
     const buttonInicio = document.getElementById('buttonLateral-Inicio');
@@ -152,19 +153,16 @@ function MyProvider({ children }) {
   };
 
   const markButtonOfCategorySelected = () => {
-    const categoryName = getCategoryName();
-
     todo.forEach((item) => {
-      if (document.getElementById(`buttonLateral-${item.name}`)) {
-        const button = document.getElementById(`buttonLateral-${item.name}`);
-        if (item.name === categoryName) {
+      if (document.getElementById(`buttonLateral-${item.id}`)) {
+        const button = document.getElementById(`buttonLateral-${item.id}`);
+        if (item.id === categorySelected) {
           button.style.background = 'var(--colorBlueLight)';
         } else {
           button.style.background = 'var(--colorBlueDark)';
         }
       }
     });
-    console.log(`Se ejecuto markCategory en ${categoryName}`);
   };
   const showContainerEditNote = () => {
     markButtonOfCategorySelected();
@@ -201,11 +199,21 @@ function MyProvider({ children }) {
     const categoryIndex = newTodo.findIndex(
       (item) => item.id === categorySelected
     );
-    const noteIndex = newTodo[0].notes.findIndex(
+    const noteIndex = newTodo[categoryIndex].notes.findIndex(
       (item) => item.id === noteSelected
     );
     newTodo[categoryIndex].notes[noteIndex].content = data;
     setTodo(newTodo);
+  };
+
+  const generateRandomId = () => {
+    const letters =
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/*-+_<';
+    let id = '';
+    for (let i = 0; i < 10; i += 1) {
+      id += letters[Math.floor(Math.random() * letters.length)];
+    }
+    return id;
   };
 
   const createNewNote = (noteNameValue) => {
@@ -221,7 +229,7 @@ function MyProvider({ children }) {
     const formattedDate = `${time.getFullYear()}/${time.getMonth()}/${time.getDate()}`;
 
     const emptyNote = {
-      id: todo[indexOfCategory].notes.length + 1,
+      id: generateRandomId(),
       title: noteNameValue === '' ? 'Sin titulo...' : noteNameValue,
       content: 'Empieza a escribir...',
       categoryId: categorySelected,
@@ -249,16 +257,6 @@ function MyProvider({ children }) {
     ).style.display = 'block';
   };
 
-  const generateRandomId = () => {
-    const letters =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let id = '';
-    for (let i = 0; i < 10; i += 1) {
-      id += letters[Math.floor(Math.random() * letters.length)];
-    }
-    return id;
-  };
-
   const createCategory = (nameCategory) => {
     setCategoriesCreated(categoriesCreated + 1);
 
@@ -278,7 +276,9 @@ function MyProvider({ children }) {
   };
 
   const eraseCategory = () => {
-    console.log(`Se setea la categoría: ${todo.length === 1 ? '' : todo[0].id}`);
+    console.log(
+      `Se setea la categoría: ${todo.length === 1 ? '' : todo[0].id}`
+    );
     console.log(`La category selected es: ${categorySelected}`);
     console.log(`Se eliminara la categoría`);
     const newTodo = todo.filter((item) => item.id !== categorySelected);
@@ -300,11 +300,11 @@ function MyProvider({ children }) {
     setTodo(newTodo);
     if (newTodo[getIndexOfCategorySelected()].notes.length === 0) {
       setNotesToRender([]);
-      setNoteSelected(1)
+      setNoteSelected(1);
     } else {
-      const idNoteAvailable = newTodo[getIndexOfCategorySelected()].notes[0].id
+      const idNoteAvailable = newTodo[getIndexOfCategorySelected()].notes[0].id;
       setNoteSelected(idNoteAvailable);
-      console.log(`Este es el NOTE SELECTED NUEVO ${idNoteAvailable}`)
+      console.log(`Este es el NOTE SELECTED NUEVO ${idNoteAvailable}`);
     }
 
     console.log(`Este es el todo sin la nota`);
@@ -335,6 +335,7 @@ function MyProvider({ children }) {
     showCreateNoteDiv,
     markButtonOfCategorySelected,
     getCategoryName,
+    getIndexOfCategorySelected,
     eraseCategory,
     eraseNote,
   };

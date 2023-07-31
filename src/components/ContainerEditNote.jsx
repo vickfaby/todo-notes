@@ -17,81 +17,72 @@ function ContainerEditNote() {
     todo,
     noteSelected,
     creatingNewNote,
-    setCreatingNewNote,
     showCreateCategoryDiv,
     showCreateNoteDiv,
-    markButtonOfCategorySelected,
-    eraseCategory
+    eraseCategory,
   } = useContext(MyContext);
 
   const [notitas, setNotitas] = useState([]);
-  const [nota, setNota] = useState({});
   const [category, setCategory] = useState('');
 
   useEffect(() => {
+    const editNotes = document.getElementById('containerEditNote-editNotes');
+    const addCategoryShortContainer = document.getElementById(
+      'button-addCategoryShortContainer'
+    );
+    const addNoteShort = document.getElementById('button-addNoteShort');
+    const addNoteBigInEdit = document.getElementById(
+      'containerNotesMini-addNoteBigInEdit'
+    );
+    const categoryName = document.getElementById(
+      'containerNotesMini-categoryName'
+    );
+    const addCategoryBigInEdit = document.getElementById(
+      'containerNotesMini-addCategoryBigInEdit'
+    );
+    const description = document.getElementById(
+      'containerEditNote-description'
+    );
+
     if (notesToRender.length > 0 && categorySelected !== '') {
       setCategory(todo.filter((item) => item.id === categorySelected)[0].name);
       const notas = notesToRender.filter((obj) => obj.id === noteSelected)[0];
-      setNota(notas);
       setNotitas(
         notesToRender.map((note) => (
           <NoteMiniToEdit note={note} key={note.id} />
         ))
       );
     } else {
-      setNota({});
+      console.log(`No hay notas para renderizar.`);
     }
 
     if (notesToRender.length === 0 || notesToRender.length === undefined) {
-      document.getElementById('containerEditNote-editNotes').style.display =
-        'none';
-      document.getElementById(
-        'button-addCategoryShortContainer'
-      ).style.display = 'none';
-      document.getElementById('button-addNoteShort').style.display = 'none';
-      document.getElementById(
-        'containerNotesMini-addNoteBigInEdit'
-      ).style.display = 'flex';
+      editNotes.style.display = 'none';
+      addCategoryShortContainer.style.display = 'none';
+      addNoteShort.style.display = 'none';
+      addNoteBigInEdit.style.display = 'flex';
 
       setNotitas([]);
 
       if (todo.length === 0) {
-        document.getElementById(
-          'containerNotesMini-categoryName'
-        ).style.display = 'none';
-        document.getElementById(
-          'containerNotesMini-addCategoryBigInEdit'
-        ).style.display = 'flex';
-        document.getElementById(
-          'containerNotesMini-addNoteBigInEdit'
-        ).style.display = 'none';
-        document.getElementById('button-addNoteShort').style.display = 'none';
-        document.getElementById('containerEditNote-description').style.display =
-          'none';
+        categoryName.style.display = 'none';
+        addCategoryBigInEdit.style.display = 'flex';
+        addNoteBigInEdit.style.display = 'none';
+        addNoteShort.style.display = 'none';
+        description.style.display = 'none';
       } else {
-        document.getElementById(
-          'containerNotesMini-categoryName'
-        ).style.display = 'flex';
-        document.getElementById(
-          'containerNotesMini-addCategoryBigInEdit'
-        ).style.display = 'none';
-        document.getElementById('containerEditNote-description').style.display =
-          'block';
-
+        categoryName.style.display = 'flex';
+        addCategoryBigInEdit.style.display = 'none';
+        description.style.display = 'block';
         setCategory(
           todo.filter((item) => item.id === categorySelected)[0].name
         );
       }
     } else {
-      document.getElementById('containerEditNote-editNotes').style.display =
-        'flex';
-      document.getElementById(
-        'button-addCategoryShortContainer'
-      ).style.display = 'flex';
-      document.getElementById('button-addNoteShort').style.display = 'flex';
-      document.getElementById(
-        'containerNotesMini-addNoteBigInEdit'
-      ).style.display = 'none';
+      editNotes.style.display = 'flex';
+      addCategoryShortContainer.style.display = 'flex';
+      addNoteShort.style.display = 'flex';
+      addNoteBigInEdit.style.display = 'none';
     }
   }, [
     containerSelected,
@@ -104,12 +95,18 @@ function ContainerEditNote() {
 
   return (
     <div id="containerEditNote" className="containerEditNote">
-      <div id='containerNotesMini-categoryName' className="containerEditNote-categoryName">
+      <div
+        id="containerNotesMini-categoryName"
+        className="containerEditNote-categoryName"
+      >
         <p id="containerEditNote-description">Libreta:</p>
         <h2>{category}</h2>
-        <div className='containerEditNote-optionsContainer'>
-          <div className='containerEditNote-deleteCategory' onClick={eraseCategory}>
-            <span className="fa-solid fa-trash"/>
+        <div className="containerEditNote-optionsContainer">
+          <div
+            className="containerEditNote-deleteCategory"
+            onClick={eraseCategory}
+          >
+            <span className="fa-solid fa-trash" />
           </div>
         </div>
       </div>
@@ -117,27 +114,19 @@ function ContainerEditNote() {
       <div
         className="containerNotesMini-addCategoryBigInEdit"
         id="containerNotesMini-addCategoryBigInEdit"
+        onClick={showCreateCategoryDiv}
       >
         <p>Crea primero una Libreta</p>
-        <div
-          className="containerNotesMini-addCategoryButton"
-          onClick={showCreateCategoryDiv}
-        >
-          +
-        </div>
+        <div className="containerNotesMini-addCategoryButton">+</div>
       </div>
 
       <div
         className="containerNotesMini-addNoteBigInEdit"
         id="containerNotesMini-addNoteBigInEdit"
+        onClick={showCreateNoteDiv}
       >
         <p>Esta libreta está vacía :( </p>
-        <div
-          className="containerNotesMini-addCategoryButton"
-          onClick={showCreateNoteDiv}
-        >
-          +
-        </div>
+        <div className="containerNotesMini-addCategoryButton">+</div>
       </div>
 
       <div
@@ -149,7 +138,7 @@ function ContainerEditNote() {
 
           <div className="containerEditNote-notes">{notitas}</div>
         </div>
-        <SuperNoteToEdit key={nota?.id} />
+        <SuperNoteToEdit key={noteSelected} />
       </div>
       <div
         id="button-addCategoryShortContainer"
