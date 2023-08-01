@@ -20,6 +20,7 @@ function ContainerNotesMini() {
     showCreateNoteDiv,
     showCreateCategoryDiv,
     getIndexOfCategorySelected,
+    getNoteTitle
   } = useContext(MyContext);
 
   const [notitas, setNotitas] = useState([]);
@@ -34,9 +35,6 @@ function ContainerNotesMini() {
     console.log(`Las notas de la categoría son:`);
     console.log(notes);
 
-    const createNoteButton = document.getElementById(
-      'containerNotesMini-addNoteBig'
-    );
     const createNoteButtonShort = document.getElementById(
       'button-addNoteShort'
     );
@@ -53,12 +51,16 @@ function ContainerNotesMini() {
     const createCategoryButtonShort = document.getElementById(
       'button-addCategoryShort'
     );
+    const categorydiv = document.getElementById(
+      'containerNotesMini-category-div'
+    );
+
 
     if (notes.length > 0) {
       setNotitas(notes.map((note) => <NoteMini note={note} key={note.id} />));
-
-      createNoteButton.style.display = 'none';
+      createNoteButtonBig.style.display = 'none';
       createNoteButtonShort.style.display = 'flex';
+      noteContainer.style.display = 'block';
     } else {
       console.log(`No hay notas creadas`);
       createNoteButtonShort.style.display = 'none';
@@ -68,10 +70,11 @@ function ContainerNotesMini() {
         createNoteButtonBig.style.display = 'flex';
         createCategoryButtonBig.style.display = 'none';
         createCategoryButtonShort.style.display = 'flex';
-        noteContainer.style.display = 'block';
+        noteContainer.style.display = 'none';
       } else {
-        categoryDiv.style.display = 'none';
+ 
         createCategoryButtonBig.style.display = 'flex';
+        categorydiv.style.display='none'
         createCategoryButtonShort.style.display = 'none';
         noteContainer.style.display = 'none';
       }

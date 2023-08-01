@@ -1,7 +1,5 @@
 @import 'vars';
 
-@import 'vars';
-
 .createNote-background{
   position: absolute;
   width: 100vw;
@@ -34,6 +32,12 @@
   width: 100%;
 }
 
+
+.createNote > input:focus {
+  width: 100%;
+  outline: 1px solid var(--colorGreen);
+}
+
 .createNote-infoContainer{
     margin-top: 1rem;
     display: flex;
@@ -50,10 +54,16 @@
 
 .createNote-buttonContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  height: 4rem;
+  margin-top: 1rem;
 }
 
 .createNote-buttonContainer-accept {
+  cursor: pointer;
   width: 10rem;
   text-align: center;
   background: var(--colorGreen);
@@ -62,7 +72,11 @@
   padding: 0.5rem;
   border-radius: 0.5rem;
 }
+.createNote-buttonContainer-accept:hover{
+  border: 1px solid var(--colorGreen);
+}
 .createNote-buttonContainer-cancel {
+  cursor: pointer;
   width: 10rem;
   text-align: center;
   background: var(--colorBlueDark);
@@ -70,4 +84,8 @@
   margin: 1rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
+}
+
+.createNote-buttonContainer-cancel:hover{
+  border: 1px solid var(--colorGreen);
 }

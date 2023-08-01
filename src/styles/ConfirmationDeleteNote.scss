@@ -1,0 +1,58 @@
+@import 'vars';
+
+.confirmationDeleteNote-background{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  opacity: 0.8;
+  background: #000000;
+}
+
+.confirmationDeleteNote-background-generalContainer{
+  display: none;
+}
+.confirmationDeleteNote {
+  position: absolute;
+  background: var(--colorWhite);
+  border: 2px solid var(--colorGreen);
+  width: 20rem;
+  height: 12rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  left: calc(50% - 10rem);
+  top: calc(50% - 5rem);
+  z-index: 2;
+}
+.confirmationDeleteNote > h2 {
+  color: var(--colorGray);
+  font-weight: 400;
+}
+.confirmationDeleteNote > input {
+  width: 100%;
+}
+
+
+.confirmationDeleteNote-buttonContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.confirmationDeleteNote-buttonContainer-accept {
+  width: 10rem;
+  text-align: center;
+  background: var(--colorGreen);
+  color: var(--colorWhite);
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+.confirmationDeleteNote-buttonContainer-cancel {
+  width: 10rem;
+  text-align: center;
+  background: var(--colorBlueDark);
+  color: var(--colorWhite);
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}

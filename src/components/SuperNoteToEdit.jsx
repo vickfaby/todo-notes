@@ -15,6 +15,10 @@ function SuperNoteToEdit() {
     todo,
     notesToRender,
     eraseNote,
+    showDeleteNoteDiv,
+    getNoteTitle,
+    hideSuperNoteReadAndEdit,
+    showSuperNoteReadAndEdit
   } = useContext(MyContext);
 
   const [noteToEdit, setNoteToEdit] = useState({});
@@ -42,6 +46,7 @@ function SuperNoteToEdit() {
         setNoteToEdit(note);
       }
     }
+    getNoteTitle();
   }, [noteSelected, categorySelected, todo, notesToRender, setNoteSelected]);
 
   return (
@@ -50,8 +55,13 @@ function SuperNoteToEdit() {
       className="containerEditNote-editNotes-editNote"
     >
       <div className="containerEditNote-editNotes-noteInfo">
-        <p>{noteToEdit?.categoryName || 'vaciooo'}</p>
-        <p>{noteToEdit?.creationDate || 'vaciooo'}</p>
+        <div className="noteInfo-containerInfo">
+          <p>{noteToEdit?.categoryName || 'vaciooo'}</p>
+          <p>{noteToEdit?.creationDate || 'vaciooo'}</p>
+        </div>
+        <div className="noteInfo-containerOptions">
+          <span className="fa-solid fa-arrow-up-right-from-square" onClick={()=>showSuperNoteReadAndEdit()} />
+        </div>
       </div>
       <input
         id="superNoteToEdit-input"
@@ -64,7 +74,10 @@ function SuperNoteToEdit() {
         defaultValue={noteToEdit?.content}
         onChange={(event) => contentHandler(event.target.value)}
       />
-      <div className="superNoteToEdit-trashContainer" onClick={eraseNote}>
+      <div
+        className="superNoteToEdit-trashContainer"
+        onClick={showDeleteNoteDiv}
+      >
         <span className="fa-solid fa-trash" />
         <p>Eliminar</p>
       </div>

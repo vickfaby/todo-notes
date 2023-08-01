@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 
-import { HashRouter } from 'react-router-dom';
-import React, { Fragment, useContext, useState } from 'react';
+import React from 'react';
 import '../styles/App.scss';
 import ButtonTodo from '../components/ButtonTodo';
 import ContainerEditNote from '../components/ContainerEditNote';
@@ -17,6 +16,8 @@ import LateralCategoryContainer from '../components/LateralCategoryContainer';
 import logo from '../assets/images/notesLogo.png'
 import ButtonSizeBar from '../components/ButtonSizeBar';
 import CreateNote from '../components/CreateNote';
+import ConfirmationDeleteNote from '../components/ConfirmationDeleteNote';
+import ConfirmationDeleteCategory from '../components/ConfirmationDeleteCategory';
 
 function App() {
 
@@ -24,6 +25,9 @@ function App() {
     <MyProvider>
       <CreateCategory />
       <CreateNote/>
+      <ConfirmationDeleteNote/>
+      <ConfirmationDeleteCategory/>
+      <ReadAndEditNote/>
       <main>
         <div id='main-leteralBar-div' className="main-leteralBar-div">
           <div id='main-leteralBar-logo' className="main-leteralBar-logo">

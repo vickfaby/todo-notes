@@ -111,9 +111,10 @@ function MyProvider({ children }) {
   const [categorySelected, setCategorySelected] = useState('');
   const [categoriesCreated, setCategoriesCreated] = useState(0);
   const [notesToRender, setNotesToRender] = useState([]);
-  const [noteSelected, setNoteSelected] = useState(1);
   const [containerSelected, setContainerSelected] = useState('inicio');
   const [creatingNewNote, setCreatingNewNote] = useState(false);
+  const [noteSelected, setNoteSelected] = useState(1);
+  const [titleNoteSelected, setTitleNoteSelected] = useState('sin title');
 
   const getIndexOfCategorySelected = () => {
     const indexOfCategory = todo.findIndex(
@@ -132,7 +133,30 @@ function MyProvider({ children }) {
     }
     return categoryName;
   };
+  const getNoteTitle = () => {
+    let noteName = 'sin valor';
 
+    if (categorySelected !== '') {
+      console.log(
+        `El index de Libreta es ${getIndexOfCategorySelected()} y el noteSelected es: ${noteSelected}`
+      );
+
+      const indexNote = todo[getIndexOfCategorySelected()].notes.findIndex(
+        (item) => item.id === noteSelected
+      );
+      console.log(`El indexNote es: ${indexNote}`)
+      noteName =
+      todo[getIndexOfCategorySelected()].notes.length > 0
+      ? todo[getIndexOfCategorySelected()].notes[indexNote].title
+      : 'vaciooo';
+      
+      console.log(`El noteName es: ${noteName}`)
+    } else {
+      console.log(`no entró, el category es ${categorySelected}`);
+    }
+
+    setTitleNoteSelected(noteName);
+  };
 
   const showContainerNotesMini = () => {
     console.log(todo);
@@ -250,13 +274,35 @@ function MyProvider({ children }) {
     document.getElementById(
       'createCategory-background-generalContainer'
     ).style.display = 'block';
+    document.getElementById('createCategory-input').focus();
   };
+
   const showCreateNoteDiv = () => {
     document.getElementById(
       'createNote-background-generalContainer'
     ).style.display = 'block';
+    document.getElementById('createNote-input').focus()
   };
-
+  const showDeleteNoteDiv = () => {
+    document.getElementById(
+      'confirmationDeleteNote-background-generalContainer'
+    ).style.display = 'block';
+  };
+  const showSuperNoteReadAndEdit = () => {
+    document.getElementById(
+      'containerReadAndEditNote-editNotes'
+    ).style.display = 'block';
+  };
+  const hideSuperNoteReadAndEdit = () => {
+    document.getElementById(
+      'containerReadAndEditNote-editNotes'
+    ).style.display = 'none';
+  };
+  const showDeleteCategoryDiv = () => {
+    document.getElementById(
+      'confirmationDeleteCategory-background-generalContainer'
+    ).style.display = 'block';
+  };
   const createCategory = (nameCategory) => {
     setCategoriesCreated(categoriesCreated + 1);
 
@@ -338,6 +384,14 @@ function MyProvider({ children }) {
     getIndexOfCategorySelected,
     eraseCategory,
     eraseNote,
+    showDeleteNoteDiv,
+    showDeleteCategoryDiv,
+    getNoteTitle,
+    titleNoteSelected,
+    setTitleNoteSelected,
+    hideSuperNoteReadAndEdit,
+    showSuperNoteReadAndEdit
+
   };
 
   return <MyContext.Provider value={obj}>{children}</MyContext.Provider>;

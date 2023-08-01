@@ -1,0 +1,80 @@
+@import 'vars';
+
+.containerReadAndEditNote-editNotes-editNote {
+    display: none;
+    padding: 1rem;
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 1rem);
+    background: var(--colorWhite);
+    /* border: 2px solid var(--colorGreen); */
+    /* box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.22); */
+    /* border-radius: 0.5rem; */
+    text-transform: capitalize;
+    transition: margin-left 2s linear;
+    margin-left: 0rem;
+    /* font-size: 1.6rem; */
+    z-index: 3;
+}
+.containerReadAndEditNote-editNotes-noteInfo {
+  border-bottom: 1px solid var(--colorGray);
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+.readNoteInfo-containerOptions > span:nth-child(1){
+color: var(--colorGray);
+font-size: medium;
+cursor: pointer;
+}
+.readNoteInfo-containerOptions > span:nth-child(1):hover{
+  scale: 1.5;
+}
+.readNoteInfo-containerInfo > p:nth-child(1) {
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--colorGray);
+}
+.readNoteInfo-containerInfo > p:nth-child(2) {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--colorGray);
+}
+
+.containerReadAndEditNote-editNotes-editNote > input {
+  width: 100%;
+  border: none;
+  background: var(--colorWhite);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.containerReadAndEditNote-editNotes-editNote > input:focus {
+  outline: none;
+}
+.containerReadAndEditNote-editNotes-editNote > textarea:focus {
+  outline: none;
+}
+.containerReadAndEditNote-editNotes-editNote > textarea {
+  width: 100%;
+  height: calc(100% - 8rem);
+  background: var(--colorWhite);
+  border: none;
+  font-size: 1rem;
+}
+
+.superReadAndEditNote-trashContainer{
+  cursor: pointer;
+  display: flex;
+  color: var(--colorGray);
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: center;
+
+}
+.superReadAndEditNote-trashContainer > p {
+  margin-left: 0.5rem;
+  font-size: 2rem;
+}

@@ -9,6 +9,7 @@ function NoteMiniToEdit({ note }) {
   const {
     noteSelected,
     setNoteSelected,
+    getNoteTitle
   } = useContext(MyContext);
 
   const handleClick = (idNote) => {
@@ -26,6 +27,7 @@ function NoteMiniToEdit({ note }) {
       noteMiniToEdit.style.border = 'none';
     //  noteMiniToEdit.style.background = 'var(--colorWhite)';
     }
+    getNoteTitle()
   }, [noteSelected]);
 
   return (

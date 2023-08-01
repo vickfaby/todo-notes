@@ -9,6 +9,7 @@
   background: #000000;
 }
 
+
 .createCategory-background-generalContainer{
   display: none;
 }
@@ -16,11 +17,11 @@
   position: absolute;
   background: var(--colorWhite);
   border: 2px solid var(--colorGreen);
-  width: 20rem;
+  width: 36rem;
   height: 12rem;
   padding: 1rem;
   border-radius: 0.5rem;
-  left: calc(50% - 10rem);
+  left: calc(50% - 18rem);
   top: calc(50% - 5rem);
   z-index: 2;
 }
@@ -31,28 +32,43 @@
 .createCategory > input {
   width: 100%;
 }
+.createCategory > input:focus {
+  width: 100%;
+  outline: 1px solid var(--colorGreen);
+}
 
 
 .createCategory-buttonContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  height: 4rem;
+  margin-top: 1rem;
 }
 
 .createCategory-buttonContainer-accept {
+  cursor: pointer;
   width: 10rem;
   text-align: center;
   background: var(--colorGreen);
   color: var(--colorWhite);
-  margin: 1rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
 }
+.createCategory-buttonContainer-accept:hover{
+  border: 1px solid var(--colorGreen);
+}
 .createCategory-buttonContainer-cancel {
+  cursor: pointer;
   width: 10rem;
   text-align: center;
   background: var(--colorBlueDark);
   color: var(--colorWhite);
-  margin: 1rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
+}
+.createCategory-buttonContainer-cancel:hover{
+  border: 1px solid var(--colorGreen);
 }

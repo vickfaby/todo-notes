@@ -22,13 +22,14 @@ function CreateCategory() {
     createCategoryDiv.style.display = 'none';
   };
   return (
-    <div id='createCategory-background-generalContainer' className='createCategory-background-generalContainer'>
-
-      <div className="createCategory-background" />
+    <div id='createCategory-background-generalContainer' className='createCategory-background-generalContainer'
+    >
+      
+      <div className="createCategory-background" onClick={()=>handleClickCancel()} />
 
       <div id="createCategory" className="createCategory">
         <h2>Crea una libreta</h2>
-        <input type="text" placeholder="Ej. Ideas de negocio..."  id="createCategory-input" />
+        <input type="text"  placeholder="Ej. Ideas de negocio..."  id="createCategory-input" />
         <div className="createCategory-buttonContainer">
           <div
             className="createCategory-buttonContainer-cancel"

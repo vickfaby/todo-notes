@@ -12,6 +12,7 @@ function NoteMini({ note }) {
     showContainerEditNote,
     containerSelected,
     showSuperNotesOnly,
+    getNoteTitle
   } = useContext(MyContext);
 
   const handleClick = (idNote) => {
@@ -30,6 +31,7 @@ function NoteMini({ note }) {
         noteMini.style.border = 'none';
         // noteMini.style.background = 'var(--colorWhite)';
     }
+    getNoteTitle()
   }, [noteSelected]);
 
   return (

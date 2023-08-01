@@ -26,9 +26,10 @@ function CreateNote() {
     createNoteDiv.style.display = 'none';
   };
   return (
-    <div id='createNote-background-generalContainer' className='createNote-background-generalContainer'>
+    <div id='createNote-background-generalContainer' className='createNote-background-generalContainer'
+    >
 
-      <div className="createNote-background" />
+      <div className="createNote-background" onClick={()=>handleClickCancel()} />
 
       <div id="createNote" className="createNote">
         <h2>Agrega un titulo a tu nota</h2>

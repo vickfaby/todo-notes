@@ -8,6 +8,7 @@ import NoteMiniToEdit from './NoteMiniToEdit';
 import SuperNoteToEdit from './SuperNoteToEdit';
 import ButtonCreateNewNoteShort from './ButtonCreateNewNoteShort';
 import ButtonCreateNewCategoryShort from './ButtonCreateNewCategoryShort';
+import '../styles/ConfirmationDeleteCategory.scss'
 
 function ContainerEditNote() {
   const {
@@ -20,6 +21,8 @@ function ContainerEditNote() {
     showCreateCategoryDiv,
     showCreateNoteDiv,
     eraseCategory,
+    showDeleteNoteDiv,
+    showDeleteCategoryDiv
   } = useContext(MyContext);
 
   const [notitas, setNotitas] = useState([]);
@@ -104,7 +107,7 @@ function ContainerEditNote() {
         <div className="containerEditNote-optionsContainer">
           <div
             className="containerEditNote-deleteCategory"
-            onClick={eraseCategory}
+            onClick={showDeleteCategoryDiv}
           >
             <span className="fa-solid fa-trash" />
           </div>
