@@ -43,6 +43,7 @@
 
 .containerEditNote-categoryName > p {
   color: var(--colorGray);
+  font-size: small;
 }
 .containerEditNote-container {
   display: flex;
@@ -111,4 +112,10 @@
   justify-content: flex-start;
   flex-direction: row-reverse;
   width: 100%;
+}
+.containerEditNote-deleteCategory > span {
+  font-size: large;
+}
+.containerEditNote-deleteCategory > span:active {
+  scale: 1.5;
 }

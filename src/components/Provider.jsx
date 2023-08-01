@@ -115,6 +115,7 @@ function MyProvider({ children }) {
   const [creatingNewNote, setCreatingNewNote] = useState(false);
   const [noteSelected, setNoteSelected] = useState(1);
   const [titleNoteSelected, setTitleNoteSelected] = useState('sin title');
+  const [superNoteActived, setSuperNoteActived] = useState(false);
 
   const getIndexOfCategorySelected = () => {
     const indexOfCategory = todo.findIndex(
@@ -135,6 +136,7 @@ function MyProvider({ children }) {
   };
   const getNoteTitle = () => {
     let noteName = 'sin valor';
+    let noteContent = 'sin valor';
 
     if (categorySelected !== '') {
       console.log(
@@ -144,13 +146,17 @@ function MyProvider({ children }) {
       const indexNote = todo[getIndexOfCategorySelected()].notes.findIndex(
         (item) => item.id === noteSelected
       );
-      console.log(`El indexNote es: ${indexNote}`)
+      console.log(`El indexNote es: ${indexNote}`);
       noteName =
-      todo[getIndexOfCategorySelected()].notes.length > 0
-      ? todo[getIndexOfCategorySelected()].notes[indexNote].title
-      : 'vaciooo';
-      
-      console.log(`El noteName es: ${noteName}`)
+        todo[getIndexOfCategorySelected()].notes.length > 0
+          ? todo[getIndexOfCategorySelected()].notes[indexNote].title
+          : 'vaciooo';
+          noteContent =
+          todo[getIndexOfCategorySelected()].notes.length > 0
+            ? todo[getIndexOfCategorySelected()].notes[indexNote].content
+            : 'vaciooo';
+      console.log(`El noteName es: ${noteName}`);
+      console.log(`El noteContent es: ${noteContent}`);
     } else {
       console.log(`no entró, el category es ${categorySelected}`);
     }
@@ -228,6 +234,7 @@ function MyProvider({ children }) {
     );
     newTodo[categoryIndex].notes[noteIndex].content = data;
     setTodo(newTodo);
+    setNoteSelected(noteSelected);
   };
 
   const generateRandomId = () => {
@@ -281,7 +288,7 @@ function MyProvider({ children }) {
     document.getElementById(
       'createNote-background-generalContainer'
     ).style.display = 'block';
-    document.getElementById('createNote-input').focus()
+    document.getElementById('createNote-input').focus();
   };
   const showDeleteNoteDiv = () => {
     document.getElementById(
@@ -289,11 +296,15 @@ function MyProvider({ children }) {
     ).style.display = 'block';
   };
   const showSuperNoteReadAndEdit = () => {
+    setSuperNoteActived(true);
+    setTodo(todo)
     document.getElementById(
       'containerReadAndEditNote-editNotes'
-    ).style.display = 'block';
-  };
-  const hideSuperNoteReadAndEdit = () => {
+      ).style.display = 'block';
+    };
+    const hideSuperNoteReadAndEdit = () => {
+      setSuperNoteActived(false);
+      setTodo(todo)
     document.getElementById(
       'containerReadAndEditNote-editNotes'
     ).style.display = 'none';
@@ -390,8 +401,9 @@ function MyProvider({ children }) {
     titleNoteSelected,
     setTitleNoteSelected,
     hideSuperNoteReadAndEdit,
-    showSuperNoteReadAndEdit
-
+    showSuperNoteReadAndEdit,
+    superNoteActived,
+    setSuperNoteActived,
   };
 
   return <MyContext.Provider value={obj}>{children}</MyContext.Provider>;

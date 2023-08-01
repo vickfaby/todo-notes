@@ -43,9 +43,9 @@ cursor: pointer;
   width: 100%;
   border: none;
   background: var(--colorWhite);
-  font-size: 1rem;
+  font-size: medium;
   font-weight: 600;
-  text-transform: uppercase;
+  text-transform: capitalize;
   margin-bottom: 1rem;
 }
 .containerEditNote-editNotes-editNote > input:focus {
@@ -56,10 +56,10 @@ cursor: pointer;
 }
 .containerEditNote-editNotes-editNote > textarea {
   width: 100%;
-  height: calc(100% - 8rem);
+  height: calc(100% - 9rem);
   background: var(--colorWhite);
   border: none;
-  font-size: 1rem;
+  font-size: small;
 }
 
 .superNoteToEdit-trashContainer{
@@ -69,6 +69,8 @@ cursor: pointer;
   flex-direction: row;
   align-items: baseline;
   justify-content: center;
+  color: #C01313 ;
+  font-size: small;
 
 }
 .superNoteToEdit-trashContainer > p {

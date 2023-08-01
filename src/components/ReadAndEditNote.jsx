@@ -14,11 +14,9 @@ function ReadAndEditNote() {
     categorySelected,
     todo,
     notesToRender,
-    eraseNote,
     showDeleteNoteDiv,
     getNoteTitle,
     hideSuperNoteReadAndEdit,
-    showSuperNoteReadAndEdit
   } = useContext(MyContext);
 
   const [noteToEdit, setNoteToEdit] = useState({});
@@ -44,10 +42,12 @@ function ReadAndEditNote() {
       } else {
         console.log(`Sin errores, se imprime el note seleccionado`);
         setNoteToEdit(note);
+        document.getElementById('superReadAndEditNote-input').value = note.title
+        document.getElementById('superReadAndEditNote-textArea').value = note.content
       }
     }
     getNoteTitle();
-  }, [noteSelected, categorySelected, todo, notesToRender, setNoteSelected]);
+  }, [noteSelected, categorySelected, todo, notesToRender]);
 
   return (
     <div
@@ -60,18 +60,22 @@ function ReadAndEditNote() {
           <p>{noteToEdit?.creationDate || 'vaciooo'}</p>
         </div>
         <div className="readNoteInfo-containerOptions">
-          <span className="fa-solid fa-down-left-and-up-right-to-center"onClick={()=>hideSuperNoteReadAndEdit()} />
+          <span
+            className="fa-solid fa-down-left-and-up-right-to-center"
+            onClick={() => hideSuperNoteReadAndEdit()}
+          />
         </div>
       </div>
       <input
         id="superReadAndEditNote-input"
         type="text"
-        defaultValue={noteToEdit?.title}
+        defaultValue={noteToEdit.title}
         onChange={(event) => titleHandler(event.target.value)}
       />
       <textarea
         id="superReadAndEditNote-textArea"
-        defaultValue={noteToEdit?.content}
+        type="text"
+        placeholder={noteToEdit.content}
         onChange={(event) => contentHandler(event.target.value)}
       />
       <div

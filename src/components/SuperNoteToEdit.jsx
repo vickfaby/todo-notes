@@ -18,7 +18,9 @@ function SuperNoteToEdit() {
     showDeleteNoteDiv,
     getNoteTitle,
     hideSuperNoteReadAndEdit,
-    showSuperNoteReadAndEdit
+    showSuperNoteReadAndEdit,
+    superNoteActived,
+    setSuperNoteActived,
   } = useContext(MyContext);
 
   const [noteToEdit, setNoteToEdit] = useState({});
@@ -44,6 +46,7 @@ function SuperNoteToEdit() {
       } else {
         console.log(`Sin errores, se imprime el note seleccionado`);
         setNoteToEdit(note);
+        setNoteSelected(note.id)
       }
     }
     getNoteTitle();
@@ -60,7 +63,10 @@ function SuperNoteToEdit() {
           <p>{noteToEdit?.creationDate || 'vaciooo'}</p>
         </div>
         <div className="noteInfo-containerOptions">
-          <span className="fa-solid fa-arrow-up-right-from-square" onClick={()=>showSuperNoteReadAndEdit()} />
+          <span
+            className="fa-solid fa-arrow-up-right-from-square"
+            onClick={() => showSuperNoteReadAndEdit()}
+          />
         </div>
       </div>
       <input
