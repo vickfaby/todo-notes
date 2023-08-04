@@ -361,15 +361,21 @@ function MyProvider({ children }) {
   };
 
   const eraseCategory = () => {
-    console.log(
-      `Se setea la categoría: ${todo.length === 1 ? '' : todo[0].id}`
-    );
+
     console.log(`La category selected es: ${categorySelected}`);
-    console.log(`Se eliminara la categoría`);
+    console.log(`Se eliminara esta categoría`);
     const newTodo = todo.filter((item) => item.id !== categorySelected);
-    setCategorySelected(todo.length === 1 ? '' : newTodo[0].id);
+    
+    const newNotesDeleted = notesDeleted.filter((item)=>(item.categoryId !== categorySelected))
+    setNotesDeleted(newNotesDeleted)
+    console.log(
+      `Se setea la categoría: ${newTodo.length >= 1 ? newTodo[newTodo.length - 1].name : '' }`
+    );
+    setCategorySelected(newTodo.length >= 1 ? newTodo[newTodo.length - 1].id : '' );
+    setNoteSelected(newTodo.length >= 1 ? newTodo[newTodo.length - 1].notes[0].id : 1)
     setTodo(newTodo);
     console.log(newTodo);
+
   };
   const restoreNote = () => {
     console.log(`Se presionó ${noteToDelete.id}`);
@@ -388,6 +394,7 @@ function MyProvider({ children }) {
 
     newNotesDeleted.splice(indexOfNoteDeleted, 1);
     setNotesDeleted(newNotesDeleted);
+    console.log(newNotesDeleted)
     setTodo(newTodo);
     showContainerEditNote();
     setCategorySelected(noteToDelete.categoryId)
