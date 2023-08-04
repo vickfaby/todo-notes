@@ -108,6 +108,8 @@ function MyProvider({ children }) {
   ];
 
   const [todo, setTodo] = useState([]);
+  const [notesDeleted, setNotesDeleted] = useState([]);
+  const [noteToDelete, setNoteToDelete] = useState({});
   const [categorySelected, setCategorySelected] = useState('');
   const [categoriesCreated, setCategoriesCreated] = useState(0);
   const [notesToRender, setNotesToRender] = useState([]);
@@ -151,10 +153,10 @@ function MyProvider({ children }) {
         todo[getIndexOfCategorySelected()].notes.length > 0
           ? todo[getIndexOfCategorySelected()].notes[indexNote].title
           : 'vaciooo';
-          noteContent =
-          todo[getIndexOfCategorySelected()].notes.length > 0
-            ? todo[getIndexOfCategorySelected()].notes[indexNote].content
-            : 'vaciooo';
+      noteContent =
+        todo[getIndexOfCategorySelected()].notes.length > 0
+          ? todo[getIndexOfCategorySelected()].notes[indexNote].content
+          : 'vaciooo';
       console.log(`El noteName es: ${noteName}`);
       console.log(`El noteContent es: ${noteContent}`);
     } else {
@@ -167,18 +169,20 @@ function MyProvider({ children }) {
   const showContainerNotesMini = () => {
     console.log(todo);
     console.log(`Este es el todo original`);
+
+    const containerTrash = document.getElementById('containerTrash');
     const containerNotesMini = document.getElementById('containerNotesMini');
     const containerEditNote = document.getElementById('containerEditNote');
     const buttonInicio = document.getElementById('buttonLateral-Inicio');
     const buttonLibretas = document.getElementById('buttonLateral-Libretas');
-    const superNote = document.getElementById(
-      'containerEditNote-editNotes-editNote'
-    );
-    buttonInicio.style.background = 'var(--colorBlueLight)';
+    const buttonPapelera = document.getElementById('buttonLateral-Papelera');
+    buttonPapelera.style.background = 'var(--colorBlueDark)';
     buttonLibretas.style.background = 'var(--colorBlueDark)';
+    buttonInicio.style.background = 'var(--colorBlueLight)';
     setContainerSelected('inicio');
     console.log(`El container cambio a inicio`);
     containerEditNote.style.display = 'none';
+    containerTrash.style.display = 'none';
     containerNotesMini.style.display = 'block';
   };
 
@@ -196,19 +200,19 @@ function MyProvider({ children }) {
   };
   const showContainerEditNote = () => {
     markButtonOfCategorySelected();
-
+    const containerTrash = document.getElementById('containerTrash');
     const containerNotesMini = document.getElementById('containerNotesMini');
     const containerEditNote = document.getElementById('containerEditNote');
     const buttonLibretas = document.getElementById('buttonLateral-Libretas');
     const buttonInicio = document.getElementById('buttonLateral-Inicio');
-    const superNote = document.getElementById(
-      'containerEditNote-editNotes-editNote'
-    );
+    const buttonPapelera = document.getElementById('buttonLateral-Papelera');
     buttonInicio.style.background = 'var(--colorBlueDark)';
+    buttonPapelera.style.background = 'var(--colorBlueDark)';
     buttonLibretas.style.background = 'var(--colorBlueLight)';
     setContainerSelected('notes');
     console.log(`El container cambio a notes`);
     containerNotesMini.style.display = 'none';
+    containerTrash.style.display = 'none';
     containerEditNote.style.display = 'block';
   };
 
@@ -295,25 +299,49 @@ function MyProvider({ children }) {
       'confirmationDeleteNote-background-generalContainer'
     ).style.display = 'block';
   };
+  const showRestoreNoteDiv = () => {
+    document.getElementById(
+      'confirmationRestoreNote-background-generalContainer'
+    ).style.display = 'block';
+  };
   const showSuperNoteReadAndEdit = () => {
     setSuperNoteActived(true);
-    setTodo(todo)
+    setTodo(todo);
     document.getElementById(
       'containerReadAndEditNote-editNotes'
-      ).style.display = 'block';
-    };
-    const hideSuperNoteReadAndEdit = () => {
-      setSuperNoteActived(false);
-      setTodo(todo)
+    ).style.display = 'block';
+  };
+  const hideSuperNoteReadAndEdit = () => {
+    setSuperNoteActived(false);
+    setTodo(todo);
     document.getElementById(
       'containerReadAndEditNote-editNotes'
     ).style.display = 'none';
   };
+
   const showDeleteCategoryDiv = () => {
     document.getElementById(
       'confirmationDeleteCategory-background-generalContainer'
     ).style.display = 'block';
   };
+
+  const showContainerTrash = () => {
+    const containerTrash = document.getElementById('containerTrash');
+    const buttonPapelera = document.getElementById('buttonLateral-Papelera');
+    buttonPapelera.style.background = 'var(--colorBlueLight)';
+    containerTrash.style.display = 'block';
+    const containerNotesMini = document.getElementById('containerNotesMini');
+    const containerEditNote = document.getElementById('containerEditNote');
+    const buttonLibretas = document.getElementById('buttonLateral-Libretas');
+    const buttonInicio = document.getElementById('buttonLateral-Inicio');
+    buttonInicio.style.background = 'var(--colorBlueDark)';
+    buttonLibretas.style.background = 'var(--colorBlueDark)';
+    setContainerSelected('papelera');
+    console.log(`El container cambio a papelera`);
+    containerNotesMini.style.display = 'none';
+    containerEditNote.style.display = 'none';
+  };
+
   const createCategory = (nameCategory) => {
     setCategoriesCreated(categoriesCreated + 1);
 
@@ -343,7 +371,28 @@ function MyProvider({ children }) {
     setTodo(newTodo);
     console.log(newTodo);
   };
+  const restoreNote = () => {
+    console.log(`Se presionó ${noteToDelete.id}`);
+    const newTodo = todo;
+    const newNotesDeleted = notesDeleted;
+    const indexOfCategoryNote = newTodo.findIndex(
+      (item) => item.id === noteToDelete.categoryId
+    );
+    const indexOfNoteDeleted = notesDeleted.findIndex(
+      (item) => item.id === noteToDelete.id
+    );
+    newTodo[indexOfCategoryNote].notes.push(noteToDelete);
 
+    console.log(`Se restauró la nota ${noteToDelete.id}`);
+    console.log(newTodo[indexOfCategoryNote].notes);
+
+    newNotesDeleted.splice(indexOfNoteDeleted, 1);
+    setNotesDeleted(newNotesDeleted);
+    setTodo(newTodo);
+    showContainerEditNote();
+    setCategorySelected(noteToDelete.categoryId)
+    setNoteSelected(noteToDelete.id)
+  };
   const eraseNote = () => {
     const newTodo = todo;
     console.log(`La noteselected es: ${noteSelected}`);
@@ -352,6 +401,12 @@ function MyProvider({ children }) {
     const indexNote = newTodo[getIndexOfCategorySelected()].notes.findIndex(
       (item) => item.id === noteSelected
     );
+
+    const notaAEliminar =
+      newTodo[getIndexOfCategorySelected()].notes[indexNote];
+    const arrayNotesDeleted = notesDeleted;
+    arrayNotesDeleted.push(notaAEliminar);
+    setNotesDeleted(arrayNotesDeleted);
     newTodo[getIndexOfCategorySelected()].notes.splice(indexNote, 1);
 
     setTodo(newTodo);
@@ -364,9 +419,8 @@ function MyProvider({ children }) {
       console.log(`Este es el NOTE SELECTED NUEVO ${idNoteAvailable}`);
     }
 
-    console.log(`Este es el todo sin la nota`);
-    console.log(todo);
-    console.log(newTodo);
+    console.log(`Este es el Array de notas eliminadas`);
+    console.log(arrayNotesDeleted);
   };
 
   const obj = {
@@ -404,6 +458,13 @@ function MyProvider({ children }) {
     showSuperNoteReadAndEdit,
     superNoteActived,
     setSuperNoteActived,
+    showContainerTrash,
+    notesDeleted,
+    setNotesDeleted,
+    restoreNote,
+    noteToDelete,
+    setNoteToDelete,
+    showRestoreNoteDiv
   };
 
   return <MyContext.Provider value={obj}>{children}</MyContext.Provider>;

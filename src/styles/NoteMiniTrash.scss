@@ -1,6 +1,6 @@
 @import 'vars';
 
-.noteMini-div{
+.noteMiniTrash-div{
     box-shadow: 1px 1px 4px 1px rgb(0 0 0 / 22%);
     background: var(--colorWhite);
     display: flex;
@@ -11,29 +11,29 @@
     border-radius: 0.5rem;
 }
 
-.noteMini-div div:nth-child(2) > p,
-.noteMini-div div:nth-child(3) > p
+.noteMiniTrash-div div:nth-child(2) > p,
+.noteMiniTrash-div div:nth-child(3) > p
 {
     color: var(--colorGray);
 }
-.noteMini-div div:nth-child(4) > p{
+.noteMiniTrash-div div:nth-child(4) > p{
     color: var(--colorGray);
     font-style: italic;
 }
-.noteMini-div div:nth-child(2),.noteMini-div div:nth-child(1) {
+.noteMiniTrash-div div:nth-child(2),.noteMiniTrash-div div:nth-child(1) {
     overflow-y: overlay;
 }
-.noteMini-div div:nth-child(1)::-webkit-scrollbar {
+.noteMiniTrash-div div:nth-child(1)::-webkit-scrollbar {
     width: 0;
     background-color: transparent; /* Opcional: Puedes ajustar el color del fondo del área del scroll oculto */
   }
 
-.noteMini-div div:nth-child(2)::-webkit-scrollbar {
+.noteMiniTrash-div div:nth-child(2)::-webkit-scrollbar {
     width: 0;
     background-color: transparent; /* Opcional: Puedes ajustar el color del fondo del área del scroll oculto */
   }
 
-.noteMini-div:hover{
+.noteMiniTrash-div:hover{
     // background: var(--colorYellow);
     cursor: pointer;
 }

@@ -56,29 +56,27 @@ function SuperNoteToEdit() {
     <div
       id="containerEditNote-editNotes"
       className="containerEditNote-editNotes-editNote"
+
     >
       <div className="containerEditNote-editNotes-noteInfo">
         <div className="noteInfo-containerInfo">
           <p>{noteToEdit?.categoryName || 'vaciooo'}</p>
           <p>{noteToEdit?.creationDate || 'vaciooo'}</p>
         </div>
-        <div className="noteInfo-containerOptions">
-          <span
-            className="fa-solid fa-arrow-up-right-from-square"
-            onClick={() => showSuperNoteReadAndEdit()}
-          />
-        </div>
+        <div className="noteInfo-containerOptions"/>
       </div>
       <input
         id="superNoteToEdit-input"
         type="text"
         defaultValue={noteToEdit?.title}
         onChange={(event) => titleHandler(event.target.value)}
+        onClick={() => showSuperNoteReadAndEdit()}
       />
       <textarea
         id="superNoteToEdit-textArea"
         defaultValue={noteToEdit?.content}
         onChange={(event) => contentHandler(event.target.value)}
+        onClick={() => showSuperNoteReadAndEdit()}
       />
       <div
         className="superNoteToEdit-trashContainer"

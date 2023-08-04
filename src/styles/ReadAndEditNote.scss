@@ -5,7 +5,7 @@
     padding: 1rem;
     position: absolute;
     width: 100%;
-    height: calc(100% - 1rem);
+    height: 100%;
     background: var(--colorWhite);
     /* border: 2px solid var(--colorGreen); */
     /* box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.22); */
@@ -59,7 +59,7 @@ cursor: pointer;
 }
 .containerReadAndEditNote-editNotes-editNote > textarea {
   width: 100%;
-  height: calc(100% - 8rem);
+  height: calc(100% - 9rem);
   background: var(--colorWhite);
   border: none;
   font-size: 1.2rem;
@@ -68,13 +68,13 @@ cursor: pointer;
 .superReadAndEditNote-trashContainer{
   cursor: pointer;
   display: flex;
-  color: var(--colorGray);
   flex-direction: row;
-  align-items: baseline;
+  align-items: center;
   justify-content: center;
+  color: var(--colorRed);
+  font-size: 2rem;
 
 }
 .superReadAndEditNote-trashContainer > p {
   margin-left: 0.5rem;
-  font-size: 2rem;
 }

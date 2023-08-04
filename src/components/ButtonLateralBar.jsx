@@ -18,6 +18,7 @@ function ButtonLateralBar({ value, id }) {
     markButtonOfCategorySelected,
     todo,
     getIndexOfCategorySelected,
+    showContainerTrash
   } = useContext(MyContext);
 
   const [icon, setIcon] = useState('');
@@ -25,6 +26,7 @@ function ButtonLateralBar({ value, id }) {
     Inicio: () => showContainerNotesMini(),
     Libretas: () => showContainerEditNote(),
     Nota: () => createNewNote(),
+    Papelera: () => showContainerTrash(),
     libretas: 'Libretas',
     etiquetas: 'Etiquetas',
   };

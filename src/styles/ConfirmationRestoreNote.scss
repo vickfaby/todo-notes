@@ -1,6 +1,6 @@
 @import 'vars';
 
-.confirmationDeleteNote-background{
+.confirmationRestoreNote-background{
   position: absolute;
   width: 100vw;
   height: 100vh;
@@ -9,10 +9,10 @@
   background: #000000;
 }
 
-.confirmationDeleteNote-background-generalContainer{
+.confirmationRestoreNote-background-generalContainer{
   display: none;
 }
-.confirmationDeleteNote {
+.confirmationRestoreNote {
   position: absolute;
   background: var(--colorWhite);
   border: 2px solid var(--colorGreen);
@@ -24,21 +24,21 @@
   top: calc(50% - 5rem);
   z-index: 2;
 }
-.confirmationDeleteNote > h2 {
+.confirmationRestoreNote > h2 {
   color: var(--colorGray);
   font-weight: 400;
 }
-.confirmationDeleteNote > input {
+.confirmationRestoreNote > input {
   width: 100%;
 }
 
 
-.confirmationDeleteNote-buttonContainer {
+.confirmationRestoreNote-buttonContainer {
   display: flex;
   justify-content: space-between;
 }
 
-.confirmationDeleteNote-buttonContainer-accept {
+.confirmationRestoreNote-buttonContainer-accept {
   cursor: pointer;
   width: 10rem;
   text-align: center;
@@ -48,7 +48,7 @@
   padding: 0.5rem;
   border-radius: 0.5rem;
 }
-.confirmationDeleteNote-buttonContainer-cancel {
+.confirmationRestoreNote-buttonContainer-cancel {
   cursor: pointer;
   width: 10rem;
   text-align: center;

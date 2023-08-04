@@ -2,7 +2,6 @@
 
 import React from 'react';
 import '../styles/App.scss';
-import ButtonTodo from '../components/ButtonTodo';
 import ContainerEditNote from '../components/ContainerEditNote';
 import ButtonLateralBar from '../components/ButtonLateralBar';
 import ContainerNotesMini from '../components/ContainerNotesMini';
@@ -18,6 +17,8 @@ import ButtonSizeBar from '../components/ButtonSizeBar';
 import CreateNote from '../components/CreateNote';
 import ConfirmationDeleteNote from '../components/ConfirmationDeleteNote';
 import ConfirmationDeleteCategory from '../components/ConfirmationDeleteCategory';
+import ContainerTrash from '../components/ContainerTrash';
+import ConfirmationRestoreNote from '../components/ConfirmationRestoreNote';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
       <CreateNote/>
       <ConfirmationDeleteNote/>
       <ConfirmationDeleteCategory/>
+      <ConfirmationRestoreNote/>
       <ReadAndEditNote/>
       <main>
         <div id='main-leteralBar-div' className="main-leteralBar-div">
@@ -53,6 +55,8 @@ function App() {
           <ContainerNotesMini />
 
           <ContainerEditNote />
+
+          <ContainerTrash />
 
           <Bloc />
         </div>

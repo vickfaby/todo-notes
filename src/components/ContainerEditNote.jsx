@@ -22,7 +22,8 @@ function ContainerEditNote() {
     showCreateNoteDiv,
     eraseCategory,
     showDeleteNoteDiv,
-    showDeleteCategoryDiv
+    showDeleteCategoryDiv,
+    notesDeleted,
   } = useContext(MyContext);
 
   const [notitas, setNotitas] = useState([]);
@@ -94,6 +95,7 @@ function ContainerEditNote() {
     notesToRender,
     creatingNewNote,
     categorySelected,
+    notesDeleted,
   ]);
 
   return (

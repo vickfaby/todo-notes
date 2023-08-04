@@ -4,7 +4,6 @@
 /* eslint-disable prefer-destructuring */
 import React, { useContext, useEffect, useState } from 'react';
 import CategoryItem from './CategoryItem';
-import ButtonOptions from './ButtonOptions';
 import NoteMini from './NoteMini';
 import '../styles/ContainerNotesMini.scss';
 import { MyContext } from './Provider';
@@ -20,7 +19,10 @@ function ContainerNotesMini() {
     showCreateNoteDiv,
     showCreateCategoryDiv,
     getIndexOfCategorySelected,
-    getNoteTitle
+    getNoteTitle,
+    containerSelected,
+    notesDeleted,
+    noteSelected,
   } = useContext(MyContext);
 
   const [notitas, setNotitas] = useState([]);
@@ -82,7 +84,7 @@ function ContainerNotesMini() {
       setNotitas([]);
     }
     setNotesToRender(notes);
-  }, [categorySelected, todo]);
+  }, [categorySelected, todo,containerSelected,noteSelected,notesDeleted]);
 
   const categoriesToRender =
     todo.length !== 0
@@ -137,10 +139,7 @@ function ContainerNotesMini() {
         id="noteContainer-div"
         className="containerNotesMini-NoteContainer-div"
       >
-        <div className="noteContainer-options-div">
-          <ButtonOptions value="option" />
-          <ButtonOptions value="op" />
-        </div>
+
         <div className="noteMiniContainer-div">
           <ButtonCreateNewNoteShort />
 
